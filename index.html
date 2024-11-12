@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HIGH-TECH STEEL WORKS LTD</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <img src="./gallery/Logo.jpg" alt="logo" class="logo">
+        <nav><h1>High-Tech Steel Works Ltd </h1></nav>
+        <nav>
+            <ul>
+                <li>
+                    <!-- <a href="#" id="home-button" class="menu-item"></a> -->
+                    <button id="home-button" class="home-button">Home</button>
+                    <label for="section-dropdown" style="display: none" >Select Section</label>
+                    <select id="section-dropdown" name="section-dropdown" >
+                        <option value="about-us">Go to</option>
+                        <option value="about-us">About Us</option>
+                        <option value="mission">Mission</option>
+                        <option value="vision">Vision</option>
+                        <option value="core-values">Core Values</option>
+                        <option value="video-container">Video</option>
+                    </select>
+                    <a href="./products.html" class="nav">Products</a>
+                    <a href="./equipment.html" class="nav">Equipment</a>
+                    <a href="./cart_page.html" class="nav">Cart</a>
+                    <a href="#contacts" class="nav">Contact Us</a>
+                    <a href="profile" class="nav">Profile</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <hr>
+    <nav>
+        <button id="watch-video-btn">Watch Some Of Our Projects</button>  
+    </nav>
+    <main>
+        <!-- <div id="content-area"> -->
+        <div class="container" >
+            <div id="about-us" class="secti">
+                <h2>Introduction</h2>
+                <p>HIGH-TECH Engineering Solutions is Kenya's leading and fast growing steel fabrication unit, providing engineering services to a host of competent places across the globe. </p>
+                <p>The company's core competency lies in heavy steel fabrication, supply of welding machines and assembly of steel structures, materials handling, equipment and steel processing for domestic and international projects.</p>
+                <p>Incorporated in 2016, HIGH-TECH ENGINEERING SOLUTIONS is a private Limited Company. It was acquired by the Director Mr. Oscar Obul. Then the company had only 3 employees and since then Mr. Obul has worked to give it a new look of life and turn it into Kenya's leading steel fabrication company. </p>
+                <p>Anything in steel is coined by him and he has been the guiding principle since 2016 through his excellent and innovative ideas.</p>
+                <p>HIGH-TECH is competing for the worlds No.1 position in Fabrication by providing quality services to all our clients.</p>
+                <p>Presently the company has been investing heavily in highly modern <a href="./products.html" class="">Security steel doors</a>, <a href="./products.html" class="">Windows</a>, <a href="./products.html" class="">Gates</a>, <a href="./products.html" class="">Balcony and staircase grills</a>, <a href="./products.html" class="">Godown steel structures</a>, <a href="./products.html" class="">Steel water towers</a>, <a href="./products.html" class="">and All types of steel works.</a></p>
+                <p>Having a workforce of over 30 employees. Major expansions are underway with plans to have all the required machines instilled for streamlining production around the world.</p>
+            </div>
+        </div>
+
+        <div class="container">
+            <p id="mission" class="section"></p>
+            <h2>Mission</h2>
+            <p>To develop long term business relationships with our clients by providing exceptional customer services through our highly skilled workforce and innovation.</p>
+        </div>
+
+        <div class="container">
+            <p id="vision"  class="section"></p>
+            <h2>Vision</h2>
+            <p>To provide high quality services that exceed the expectactions of our customers while maintaining industry standards.</p>
+        </div>
+
+        <div class="container">
+            <p id="core-values"  class="section"></p>
+            <h2>Core Values</h2>
+            <p>We believe in treating our customers with:
+                <ul class="values">
+                    <li>Utmost Respect and</li>
+                    <li>Loyalty</li>
+                </ul>
+            <p>We intergrate the below Into all aspects of our business functions:</p>
+                <ul class="values">
+                    <li>Honesty</li>
+                    <li>Integrity</li>
+                    <li>Business Ethics</li>
+                </ul>
+        </div>
+        
+        
+        <!-- <div class="container" id="video-container"> -->
+            <!-- Video Modal -->
+            <div id="video-modal">
+                <div id="video-container">
+                    <span id="close-btn">&times;</span>
+                    <video id="marketing-video" controls autoplay>
+                        <source src="./gallery/Download.mp4" type="video/mp4">
+                        <source src="./gallery/Download2.mp4" type="video/webm">
+                        Your browser does not support the video tag.
+                    </video>
+                    <div id="video-title">Playing: Video 1</div>
+                </div>
+            </div>
+            <!-- Video Modal -->
+            <!-- <div id="video-modal">
+                <div id="iframe-container">
+                    <span id="close-btn">&times;</span>
+                    <iframe id="marketing-video" src="https://www.youtube.com/embed/your-video-id?autoplay=1&rel=0" 
+                            title="Marketing Video" frameborder="0" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                            allowfullscreen></iframe>
+                </div>
+            </div> -->
+            <!-- iFrame video container -->
+            <!-- <div id="iframe-container">
+                <iframe src="https://www.youtube.com/embed/your-video-id" 
+                        title="Marketing Video" frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen>
+                </iframe>
+            </div> -->
+    <hr>           
+    <br>
+            <button id="backToTopBtn" title="Back to top">^</button>
+        
+        
+    </main>
+    <script src="scripts.js"></script>
+    <script>
+        // video for local storage
+        // Select elements
+        const watchVideoBtn = document.getElementById('watch-video-btn');
+        const videoModal = document.getElementById('video-modal');
+        const closeBtn = document.getElementById('close-btn');
+        const marketingVideo = document.getElementById('marketing-video');
+
+        // Show modal and play video on click
+        if (watchVideoBtn) {
+            watchVideoBtn.addEventListener('click', () => {
+                videoModal.style.display = 'flex';
+                marketingVideo.play().catch(error => {
+                    console.warn("Autoplay was prevented:", error);
+                });
+            });
+        }
+
+        // Close modal and stop video
+        if (closeBtn) {
+            closeBtn.addEventListener('click', () => {
+                videoModal.style.display = 'none';
+                marketingVideo.pause();
+                marketingVideo.currentTime = 0;
+            });
+        }
+
+        // Close modal on outside click
+        window.addEventListener('click', (event) => {
+            if (event.target === videoModal) {
+                videoModal.style.display = 'none';
+                marketingVideo.pause();
+                marketingVideo.currentTime = 0;
+            }
+        });
+
+        // Fallback video list
+        const fallbackVideos = [
+            { src: "./gallery/Download.mp4", title: "Download Video 1" },
+            { src: "./gallery/Download2.mp4", title: "Download Video 2" }
+        ];
+        let videos = [];
+        let currentVideoIndex = 0;
+
+        // Fetch the list of videos from the server or use fallback
+        async function loadVideos() {
+            try {
+                const response = await fetch('http://localhost:3000/video-list');
+                if (!response.ok) throw new Error('Network response was not ok');
+                videos = await response.json();
+
+                if (videos.length === 0) {
+                    videos = fallbackVideos;
+                }
+            } catch (error) {
+                console.warn("Failed to load video list:", error);
+                videos = fallbackVideos;
+            }
+
+            playNextVideo(); // Start playing the video
+        }
+
+        // Function to load and play the next video
+        function playNextVideo() {
+            if (videos.length === 0) return;
+
+            marketingVideo.src = videos[currentVideoIndex].src;
+            videoTitle.textContent = `Playing: ${videos[currentVideoIndex].title}`;
+            marketingVideo.play().catch(error => {
+                console.warn("Autoplay was prevented:", error);
+            });
+
+            currentVideoIndex = (currentVideoIndex + 1) % videos.length; // Loop to the first video
+        }
+
+        // Event listener for when a video ends
+        if (marketingVideo) {
+            marketingVideo.addEventListener('ended', playNextVideo);
+        }
+
+        // Load videos on page load
+        loadVideos();
+    </script>
+</body>
+<footer>
+    <h1><span>"Home of Experience"</span></h1>
+    <div class="footer_">
+        <div class="social-links">
+            <h2>Location</h2>
+            <p> We are loacated at Utawala,<a href="" class="social-links"></a></p>
+        </div>
+        <div class="social-links">
+            <h2 id="contacts" class="">Contact us through:</h2>
+            <a href="mailto:info@high-tech-steel-works-ltd.co.ke">Email Us |</a> 
+            <a href="https://wa.me/0724376109"> WhatsApp Us |</a> 
+            <a href="tel:0723536999"> Call: 0723536999 |</a> 
+        </div>
+        <div class="social-links">
+            <h2></h2>
+            <img src="./gallery/Facebook.jpg" alt="facebook"><a href="#"> |</a> 
+            <a href="#"> Twitter |</a> 
+            <a href="#"> Instagram |</a> 
+        </div>
+    </div>
+</footer>
+</html>

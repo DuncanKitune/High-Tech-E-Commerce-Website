@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HIGH-TECH STEEL WORKS LTD</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <img src="./gallery/Logo.jpg" alt="logo" class="logo">
+        <nav><h1>High-Tech Steel Works Ltd </h1></nav>
+        <nav>
+            <ul>
+                <li>
+                    <a href="./index.html" class="nav">Home</a>
+                    <a href="./products.html" class="nav">Products</a>
+                    <a href="./equipment.html" class="nav">Equipment</a>
+                    <a href="./cart_page.html" class="nav">Cart</a>
+                    <a href="#contacts" class="nav">Contact Us</a>
+                    <a href="profile" class="nav">Profile</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <hr>
+        <main>
+            <form id="payment-form">
+                <div id="card-element">
+                  <!-- A Stripe Element will be inserted here. -->
+                </div>
+                <!-- Display error messages for the card details -->
+                <div id="card-errors" role="alert"></div>
+                <button id="submit-button">Submit Payment</button>
+              </form>
+              
+              <script src="https://js.stripe.com/v3/"></script>
+              
+        </main>
+    </body>
+</html>

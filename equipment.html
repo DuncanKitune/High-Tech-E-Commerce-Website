@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HIGH-TECH STEEL WORKS LTD</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <img src="./gallery/Logo.jpg" alt="High-Tech Steel Works Logo" class="logo">
+        <h1>High-Tech Steel Works Ltd</h1>
+        <nav>
+            <ul>
+                <li><a href="./index.html" class="nav">Home</a></li>
+                <li><a href="./products.html" class="nav">Products</a></li>
+                <li><a href="./equipment.html" class="nav">Equipment</a></li>
+                <li><a href="./cart_page.html" class="nav">Cart</a></li>
+                <li><a href="#contacts" class="nav">Contact Us</a></li>
+                <li><a href="./profile.html" class="nav">Profile</a></li>
+            </ul>
+        </nav>
+    </header>
+    <hr>
+    <h2>Our Equipment</h2>
+    <p>Our workshop is equiped with the state of the art welding mahines and equipment, including;</p>
+    <div class="equipment">
+        <!-- Daily Drop  -->
+        <div class="film-item"><img src="gallery/Daily  Drop2.jpg" alt="Equipment" width="350" height="250"><p>Metal Inert Gas (MIG)</p></div>
+        <div class="film-item"><img src="gallery/Daily drop.jpg" alt="Equipment" width="350" height="250"><p>Tungsten Inert Gas (TIG)</p></div>  
+        <div class="film-item"><img src="gallery/Daily drop.jpg" alt="Equipment" width="350" height="250"><p>Shielding Metal Arc Welding (SMAW)</p></div>  
+        <div class="film-item"><img src="gallery/Daily drop.jpg" alt="Equipment" width="350" height="250"><p>Oxy Acetylene Heating & Cutiing Equipment</p></div>  
+        <div class="film-item"><img src="gallery/Daily drop.jpg" alt="Equipment" width="350" height="250"><p>Plasma Arc Cutting Plant</p></div>  
+        <div class="film-item"><img src="gallery/Daily drop.jpg" alt="Equipment" width="350" height="250"><p>Drill Press</p></div>  
+        <div class="film-item"><img src="gallery/Daily drop.jpg" alt="Equipment" width="350" height="250"><p>Band Saw</p></div>   
+        <div class="film-item"><img src="gallery/Daily drop.jpg" alt="Equipment" width="350" height="250"><p>Other Equipment</p></div>  
+    </div>
+    <button id="backToTopBtn" title="Back to top">^</button>
+        <script> 
+            // nav menu
+            const mainMenu = document.querySelector('.mainMenu');
+            const closeMenu = document.querySelector('.closeMenu');
+            const openMenu = document.querySelector('.openMenu');
+
+            openMenu.addEventListener('click',show);
+            closeMenu.addEventListener('click',close);
+
+            function show(){
+                mainMenu.style.display = 'flex';
+                mainMenu.style.top = '0';
+            }
+            function close(){
+                mainMenu.style.top = '-100%';
+            }
+            // Get the button
+            let backToTopBtn = document.getElementById("backToTopBtn");
+
+            // When the user scrolls down 2 times from the top of the document, show the button
+            let scrollCount = 0;
+            window.onscroll = function() {
+                scrollCount++;
+                if (scrollCount >= 2) {
+                    backToTopBtn.style.display = "block";
+                } else {
+                    backToTopBtn.style.display = "none";
+                }
+            };
+
+            // When the user clicks on the button, scroll to the top of the document
+            backToTopBtn.addEventListener('click', function() {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+        </script> 
+        <footer>
+            <h1><span>"Home of Experience"</span></h1>
+            <div class="footer_">
+                <div class="social-links">
+                    <h2>Location</h2>
+                    <p> We are loacated at Utawala,<a href="" class="social-links"></a></p>
+                </div>
+                <div class="social-links">
+                    <h2 id="contacts" class="">Contact us through:</h2>
+                    <a href="mailto:info@high-tech-steel-works-ltd.co.ke">Email Us |</a> 
+                    <a href="https://wa.me/0724376109"> WhatsApp Us |</a> 
+                    <a href="tel:0723536999"> Call: 0723536999 |</a> 
+                </div>
+                <div class="social-links">
+                    <h2></h2>
+                    <img src="./gallery/Facebook.jpg" alt="facebook"><a href="#"> |</a> 
+                    <a href="#"> Twitter |</a> 
+                    <a href="#"> Instagram |</a> 
+                </div>
+            </div>
+        </footer>
+</body>
+
+</html>

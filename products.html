@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HIGH-TECH STEEL WORKS LTD</title>
+    <link rel="stylesheet" href="styles.css">
+    
+</head>
+<body>
+    <header>
+        <img src="./gallery/Logo.jpg" alt="High-Tech Steel Works Logo" class="logo">
+        <h1>High-Tech Steel Works Ltd</h1>
+        <nav>
+            <ul>
+                <li><a href="./index.html" class="nav">Home</a></li>
+                <li><a href="./products.html" class="nav">Products</a></li>
+                <li><a href="./equipment.html" class="nav">Equipment</a></li>
+                <li><a href="./cart_page.html" class="nav">Cart</a></li>
+                <li><a href="#contacts" class="nav">Contact Us</a></li>
+                <li><a href="./profile.html" class="nav">Profile</a></li>
+            </ul>
+        </nav>
+    </header>
+    <hr>
+    <main>
+        <!-- Product Listing Section -->
+        <section id="product-listing">
+            <h2>Products</h2>
+
+            <!-- Filters and Search -->
+            <div id="filters">
+                <label for="category-filter">Filter by Category:</label>
+                <select id="category-filter" onchange="filterProducts()">
+                    <option value="all">All Categories</option>
+                    <option value="windows">Windows</option>
+                    <option value="doors">Doors</option>
+                    <option value="gates">Gates</option>
+                    <option value="grills">Grills</option>
+                    <option value="security_doors">Security Doors</option>
+                </select>
+
+                <label for="price-sort">Sort by Price:</label>
+                <select id="price-sort" onchange="sortProducts()">
+                    <option value="default">Default</option>
+                    <option value="low-high">Low to High</option>
+                    <option value="high-low">High to Low</option>
+                </select>
+
+                <input type="text" id="search-box" placeholder="Search Products..." oninput="filterAndSortProducts()">
+            </div>
+
+            <!-- Product Grid -->
+            <div id="products"></div>
+
+            <!-- Pagination -->
+            <div id="pagination">
+                <button id="prev-page" onclick="prevPage()">Previous</button>
+                <span id="page-info"></span>
+                <button id="next-page" onclick="nextPage()">Next</button>
+                <a href="./cart_page.html" class="pagination">Proceed to Cart</a>
+            </div>
+
+            
+        </section>
+    </main>
+    <hr>
+    
+   <script>
+    // Example product data
+    // Example product data
+    const products = [
+        { id: 1, name: "Pivot Steel Door (Plain)", category: "doors", price: 60000, size:"Height: 2400cm. Width: 1500cm", production:"7 Days", image: "gallery/Pivot steel door design 13.jpg" },
+
+        { id: 2, name: "Pivot Steel Door (With Mahogany Cladding)", category: "security_doors", price: 80000, size:"Height: 2400cm. Width: 1500cm", production:"10 Days", image: "gallery/Pivot steel doors with mahogany wood cladding on top 1.jpg" },
+
+
+        { id: 3, name: "Single Leaf Steel Door", category: "doors", price: 30000, size:"Height: 2200cm. Width: 900cm", production:"7 Days", image: "gallery/Single leaf  steel door.jpg" },
+
+        { id: 4, name: "Single Leaf Steel Door (With Mahogany Cladding)", category: "doors", price: 52000, size:"Height: 2200cm by Width: 900cm", production:"7 Days", image: "gallery/Single leaf steel door with mahogany wood cladding on top.jpg" },
+
+        { id: 5, name: "Double Leaf Steel Door", category: "security_doors", price: 40000, size:"Height: 2200cm. Width: 1200cm", production:"7 Days", image: "gallery/Double leaf steel doors 1.jpg" },
+
+        { id: 6, name: "Sliding Gates", category: "gates", price: 85000, size:"Height: 8ft. Width: 13ft & 5ft*9ft 95,000", production:"7 Days", image: "gallery/Sliding gates.jpg" },
+
+        { id: 7, name: "Normal Opening Gates", category: "gates", price: 75000, size:"Height: 9ft. Width: 13ft", production:"10 Days", image: "gallery/Normal opening gate.jpg" },
+        { id: 8, name: "Windows", category: "windows", price: 9000, size:"4*4, 5*5 KES 11,000, 6*6 KES 14,500, 6*7 KES 15,500", production:"3 Days", image: "gallery/Windows.jpg" },
+    ];
+    // add to cart
+    // Initialize an empty cart array
+let cart = [];
+
+// Define the addToCart function
+function addToCart(productId) {
+    // Find the product by its ID
+    const product = products.find(p => p.id === productId);
+
+    // If the product exists, add it to the cart
+    if (product) {
+        cart.push(product);
+        alert(`${product.name} has been added to your cart.`);
+    } else {
+        alert("Product not found.");
+    }
+
+    // Optionally, you can log the cart to the console to verify
+    // console.log(cart);
+}
+
+
+    // Pagination variables
+    let currentPage = 1;
+    const itemsPerPage = 2;
+
+    // Display products based on current filters, search, and pagination
+    function displayProducts(productsToDisplay) {
+        const productsDiv = document.getElementById('products');
+        productsDiv.innerHTML = ''; // Clear existing products
+
+        const startIndex = (currentPage - 1) * itemsPerPage;
+        const paginatedProducts = productsToDisplay.slice(startIndex, startIndex + itemsPerPage);
+
+        productsToDisplay.forEach(product => {
+            const productDiv = document.createElement('div');
+            productDiv.classList.add('product');
+            productDiv.innerHTML = `
+                <img src="${product.image}" alt="${product.name}">
+                <h3>${product.name}</h3>
+                <p>Price: KES ${product.price.toFixed(2)}</p>
+                <p>Size: ${product.size} </p>
+                <p>Production Time: ${product.production}</p>
+                <button onclick="addToCart(${product.id})">Add to Cart</button>
+            `;
+            productsDiv.appendChild(productDiv);
+        });
+
+        updatePagination(productsToDisplay.length);
+    }
+    
+    // Filter products by category
+    function filterProducts() {
+        const category = document.getElementById('category-filter').value;
+        let filteredProducts = products;
+
+        if (category !== 'all') {
+            filteredProducts = products.filter(product => product.category === category);
+        }
+
+        displayProducts(filteredProducts);
+    }
+
+    // Sort products by price
+    function sortProducts() {
+        const sortOption = document.getElementById('price-sort').value;
+        let sortedProducts = [...products];
+
+        if (sortOption === 'low-high') {
+            sortedProducts.sort((a, b) => a.price - b.price); // Sort by price low to high
+        } else if (sortOption === 'high-low') {
+            sortedProducts.sort((a, b) => b.price - a.price); // Sort by price high to low
+        }
+
+        displayProducts(sortedProducts);
+    }
+    // Filter, sort, and search combined
+    function filterAndSortProducts() {
+        let filteredProducts = products;
+
+        // Apply search filter
+        const searchTerm = document.getElementById('search-box').value.toLowerCase();
+        if (searchTerm) {
+            filteredProducts = filteredProducts.filter(product => product.name.toLowerCase().includes(searchTerm));
+        }
+        displayProducts(filteredProducts);
+    }
+
+    // Call the display function on page load to show all products
+    displayProducts(products);
+
+    // Pagination functions
+    function updatePagination(totalItems) {
+        const totalPages = Math.ceil(totalItems / itemsPerPage);
+        document.getElementById('page-info').textContent = `Page ${currentPage} of ${totalPages}`;
+        document.getElementById('prev-page').disabled = currentPage === 1;
+        document.getElementById('next-page').disabled = currentPage === totalPages;
+    }
+
+    function nextPage() {
+        currentPage++;
+        filterAndSortProducts();
+    }
+
+    function prevPage() {
+        currentPage--;
+        filterAndSortProducts();
+    }
+
+    // Initial display of all products
+    filterAndSortProducts();
+
+</script>
+    <!-- <script src="scripts.js"></script> -->
+</body>
+
+<footer>
+    <h1><span>"Home of Experience"</span></h1>
+    <div class="footer_">
+        <div class="social-links">
+            <h2>Location</h2>
+            <p> We are loacated at Utawala,<a href="" class="social-links"></a></p>
+        </div>
+        <div class="social-links">
+            <h2 id="contacts" class="">Contact us through:</h2>
+            <a href="mailto:info@high-tech-steel-works-ltd.co.ke">Email Us |</a> 
+            <a href="https://wa.me/0724376109"> WhatsApp Us |</a> 
+            <a href="tel:0723536999"> Call: 0723536999 |</a> 
+        </div>
+        <div class="social-links">
+            <h2></h2>
+            <img src="./gallery/Facebook.jpg" alt="facebook"><a href="#"> |</a> 
+            <a href="#"> Twitter |</a> 
+            <a href="#"> Instagram |</a> 
+        </div>
+    </div>
+</footer>
+</html>
+
+
+<!-- <section id="featured-products">
+            <h2>Featured Products</h2>
+            <div class="product-grid">
+                <div class="product">
+                    <img src="product1.jpg" alt="Product 1">
+                    <h2>Product Name</h2>
+                    <p>Description of the product goes here. It can include features, specifications, etc.</p>
+                    <p>Price: $29.99</p>
+                    <button onclick="addToCart(1)">Add to Cart</button>
+                </div>
+                <div class="product">
+                    <img src="product1.jpg" alt="Product 1">
+                    <h2>Product Name</h2>
+                    <p>Description of the product goes here. It can include features, specifications, etc.</p>
+                    <p>Price: $29.99</p>
+                    <button onclick="addToCart(1)">Add to Cart</button>
+                </div>
+                <div class="product">
+                    <img src="product1.jpg" alt="Product 1">
+                    <h2>Product Name</h2>
+                    <p>Description of the product goes here. It can include features, specifications, etc.</p>
+                    <p>Price: $29.99</p>
+                    <button onclick="addToCart(1)">Add to Cart</button>
+                </div>
+                <div class="product">
+                    <img src="product1.jpg" alt="Product 1">
+                    <h2>Product Name</h2>
+                    <p>Description of the product goes here. It can include features, specifications, etc.</p>
+                    <p>Price: $29.99</p>
+                    <button onclick="addToCart(1)">Add to Cart</button>
+                </div>
+                <div class="product">
+                    <img src="product1.jpg" alt="Product 1">
+                    <h2>Product Name</h2>
+                    <p>Description of the product goes here. It can include features, specifications, etc.</p>
+                    <p>Price: $29.99</p>
+                    <button onclick="addToCart(1)">Add to Cart</button>
+                </div>
+                <! More products -->
+            <!-- </div>
+        </section>  -->

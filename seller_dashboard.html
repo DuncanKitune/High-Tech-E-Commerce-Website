@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HIGH-TECH STEEL WORKS LTD</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <img src="./gallery/Logo.jpg" alt="High-Tech Steel Works Logo" class="logo">
+        <h1>High-Tech Steel Works Ltd</h1>
+        <nav>
+            <ul>
+                <li><a href="./index.html" class="nav">Home</a></li>
+                <li><a href="./products.html" class="nav">Products</a></li>
+                <li><a href="./equipment.html" class="nav">Equipment</a></li>
+                <li><a href="./cart_page.html" class="nav">Cart</a></li>
+                <li><a href="#contacts" class="nav">Contact Us</a></li>
+                <li><a href="./profile.html" class="nav">Profile</a></li>
+            </ul>
+        </nav>
+    </header>
+    <hr>
+<body>
+    <!-- Form to Add a New Product -->
+    <h2>Add New Product</h2>
+    <form id="addProductForm">
+        <input type="text" id="name" placeholder="Product Name" required />
+        <input type="number" id="price" placeholder="Price" required />
+        <input type="text" id="category" placeholder="Category" required />
+        <input type="number" id="quantity" placeholder="Quantity" required />
+        <textarea id="description" placeholder="Description"></textarea>
+        <button type="submit">Add Product</button>
+    </form>
+
+    <!-- Form to Edit an Existing Product -->
+    <h2>Edit Product</h2>
+    <form id="editProductForm">
+        <input type="text" id="editId" placeholder="Product ID" required />
+        <input type="text" id="editName" placeholder="Product Name" />
+        <input type="number" id="editPrice" placeholder="Price" />
+        <input type="text" id="editCategory" placeholder="Category" />
+        <input type="number" id="editQuantity" placeholder="Quantity" />
+        <textarea id="editDescription" placeholder="Description"></textarea>
+        <button type="submit">Edit Product</button>
+    </form>
+
+    <script>
+        document.getElementById('addProductForm').onsubmit = async function (e) {
+            e.preventDefault();
+            const productData = {
+                name: document.getElementById('name').value,
+                price: document.getElementById('price').value,
+                category: document.getElementById('category').value,
+                quantity: document.getElementById('quantity').value,
+                description: document.getElementById('description').value,
+            };
+
+            try {
+                const response = await fetch('/add-product', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(productData),
+                });
+                const result = await response.json();
+                alert(result.message || 'Product added!');
+            } catch (error) {
+                alert('Error adding product');
+            }
+        };
+
+        document.getElementById('editProductForm').onsubmit = async function (e) {
+            e.preventDefault();
+            const productId = document.getElementById('editId').value;
+            const productData = {
+                name: document.getElementById('editName').value,
+                price: document.getElementById('editPrice').value,
+                category: document.getElementById('editCategory').value,
+                quantity: document.getElementById('editQuantity').value,
+                description: document.getElementById('editDescription').value,
+            };
+
+            try {
+                const response = await fetch(`/edit-product/${productId}`, {
+                    method: 'PATCH',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(productData),
+                });
+                const result = await response.json();
+                alert(result.message || 'Product updated!');
+            } catch (error) {
+                alert('Error updating product');
+            }
+        };
+    </script>
+</body>
+<footer>
+    <h1><span>"Home of Experience"</span></h1>
+    <div class="footer_">
+        <div class="social-links">
+            <h2>Location</h2>
+            <p> We are loacated at Utawala,<a href="" class="social-links"></a></p>
+        </div>
+        <div class="social-links">
+            <h2 id="contacts" class="">Contact us through:</h2>
+            <a href="mailto:info@high-tech-steel-works-ltd.co.ke">Email Us |</a> 
+            <a href="https://wa.me/0724376109"> WhatsApp Us |</a> 
+            <a href="tel:0723536999"> Call: 0723536999 |</a> 
+        </div>
+        <div class="social-links">
+            <h2></h2>
+            <img src="./gallery/Facebook.jpg" alt="facebook"><a href="#"> |</a> 
+            <a href="#"> Twitter |</a> 
+            <a href="#"> Instagram |</a> 
+        </div>
+    </div>
+</footer>
+</html>
