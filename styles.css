@@ -184,7 +184,7 @@ nav a:hover {
     background-color:var(--primary);
     border: .1rem solid var(--conservative);
     border-radius: 5px;
-    margin-left: 15%;
+    margin: 0 40% 0 50%;
 }
 #watch-video-btn:hover{
     color: var(--primary);
