@@ -35,14 +35,15 @@
             </div>
     
             <!-- Personal Details -->
+             <!-- Personal Details -->
             <div class="personal-details">
                 <h2>Personal Details</h2>
-                <p><strong>Name:</strong> John Doe</p>
-                <p><strong>Email:</strong> john.doe@example.com</p>
-                <p><strong>Phone:</strong> +123 456 7890</p>
-                <p><strong>Delivery Address:</strong> 123 Main Street, Cityville, Country</p>
+                <p><strong>Name:</strong> <span id="profile-name"></span></p>
+                <p><strong>Email:</strong> <span id="profile-email"></span></p>
+                <p><strong>Phone:</strong> <span id="profile-phone"></span></p>
+                <p><strong>Delivery Address:</strong> <span id="profile-address"></span></p>
             </div>
-    
+
             <!-- Orders Section -->
             <div class="orders">
                 <h2>Order History</h2>
@@ -50,7 +51,7 @@
                     <!-- Orders will be dynamically inserted here by JavaScript -->
                 </div>
             </div>
-    
+
             <!-- Complaints and Compliments Form -->
             <div class="feedback-form">
                 <h2>Submit Complaints or Compliments</h2>
@@ -59,6 +60,7 @@
                     <button type="submit">Submit Feedback</button>
                 </form>
             </div>
+        </div>
         </div>
     </main>
 </body>
@@ -72,8 +74,8 @@
         <div class="social-links">
             <h2 id="contacts" class="">Contact us through:</h2>
             <a href="mailto:info@high-tech-steel-works-ltd.co.ke">Email Us |</a> 
-            <a href="https://wa.me/0724376109"> WhatsApp Us |</a> 
-            <a href="tel:0723536999"> Call: 0723536999 |</a> 
+            <a href="https://wa.me/+254724376109" aria-label="Chat with us on WhatsApp">WhatsApp Us</a> |
+            <a href="tel:+254723536999" aria-label="Call High-Tech Steel Works">Call: +254 723 536 999</a>
         </div>
         <div class="social-links">
             <h2></h2>
@@ -83,87 +85,90 @@
         </div>
     </div>
 </footer>
-<script>
-    // Display greeting based on time of day
-    function displayGreeting() {
-        const greetingElement = document.getElementById('greeting');
-        const currentTimeElement = document.getElementById('current-time');
-        const now = new Date();
-        const hours = now.getHours();
-        let greeting = 'Hello';
+    <script>
+        // Display greeting based on time of day
+        function displayGreeting() {
+            const greetingElement = document.getElementById('greeting');
+            const currentTimeElement = document.getElementById('current-time');
+            const now = new Date();
+            const hours = now.getHours();
+            let greeting = 'Hello';
 
-        if (hours < 12) {
-            greeting = 'Good morning!';
-        } else if (hours < 18) {
-            greeting = 'Good afternoon!';
-        } else {
-            greeting = 'Good evening!';
-        }
-
-        greetingElement.textContent = greeting;
-        currentTimeElement.textContent = `Current time: ${now.toLocaleTimeString()} on ${now.toLocaleDateString()}`;
-    }
-
-    // Sample order data
-    const orders = [
-        { id: 1, dateOrdered: '2024-10-20' },
-        { id: 2, dateOrdered: '2024-10-15' },
-        { id: 3, dateOrdered: '2024-10-05' }
-    ];
-
-    // Display orders with delivery status
-    function displayOrders() {
-        const ordersContainer = document.getElementById('orders-container');
-        const currentDate = new Date();
-
-        orders.forEach(order => {
-            const orderDate = new Date(order.dateOrdered);
-            const deliveryDate = new Date(orderDate);
-            deliveryDate.setDate(deliveryDate.getDate() + 14);
-
-            const daysRemaining = Math.round((deliveryDate - currentDate) / (1000 * 60 * 60 * 24));
-            let deliveryStatus = '';
-
-            if (daysRemaining > 0) {
-                deliveryStatus = `${daysRemaining} days remaining for delivery`;
-            } else if (daysRemaining === 0) {
-                deliveryStatus = 'Delivery is today';
+            if (hours < 12) {
+                greeting = 'Good morning!';
+            } else if (hours < 18) {
+                greeting = 'Good afternoon!';
             } else {
-                deliveryStatus = `${Math.abs(daysRemaining)} days past due`;
+                greeting = 'Good evening!';
             }
 
-            // Create order element
-            const orderElement = document.createElement('div');
-            orderElement.className = 'order-item';
-            orderElement.innerHTML = `
-                <div>
-                    <h3>Order #${order.id}</h3>
-                    <p>Ordered on: ${orderDate.toLocaleDateString()}</p>
-                    <p>${deliveryStatus}</p>
-                </div>
-                <button class="receive-button" onclick="receiveOrder(${order.id})">Receive Order</button>
-            `;
+            greetingElement.textContent = greeting;
+            currentTimeElement.textContent = `Current time: ${now.toLocaleTimeString()} on ${now.toLocaleDateString()}`;
+        }
 
-            ordersContainer.appendChild(orderElement);
+        // Display customer and order details
+        function loadProfileData() {
+            // Load customer details from localStorage
+            const customerData = JSON.parse(localStorage.getItem('customerData'));
+            if (customerData) {
+                document.getElementById('profile-name').textContent = customerData.name;
+                document.getElementById('profile-email').textContent = customerData.email;
+                document.getElementById('profile-phone').textContent = customerData.phone;
+                document.getElementById('profile-address').textContent = customerData.address;
+            }
+
+            // Load order details from localStorage
+            const orders = JSON.parse(localStorage.getItem('orderHistory')) || [];
+            const ordersContainer = document.getElementById('orders-container');
+            const currentDate = new Date();
+
+            orders.forEach(order => {
+                const orderDate = new Date(order.dateOrdered);
+                const deliveryDate = new Date(orderDate);
+                deliveryDate.setDate(deliveryDate.getDate() + 14);
+
+                const daysRemaining = Math.round((deliveryDate - currentDate) / (1000 * 60 * 60 * 24));
+                let deliveryStatus = '';
+
+                if (daysRemaining > 0) {
+                    deliveryStatus = `${daysRemaining} days remaining for delivery`;
+                } else if (daysRemaining === 0) {
+                    deliveryStatus = 'Delivery is today';
+                } else {
+                    deliveryStatus = `${Math.abs(daysRemaining)} days past due`;
+                }
+
+                const orderElement = document.createElement('div');
+                orderElement.className = 'order-item';
+                orderElement.innerHTML = `
+                    <div>
+                        <h3>Order #${order.id}</h3>
+                        <p>Ordered on: ${orderDate.toLocaleDateString()}</p>
+                        <p>${deliveryStatus}</p>
+                    </div>
+                    <button class="receive-button" onclick="receiveOrder(${order.id})">Receive Order</button>
+                `;
+
+                ordersContainer.appendChild(orderElement);
+            });
+        }
+
+        // Handle receiving an order
+        function receiveOrder(orderId) {
+            alert(`Order #${orderId} received!`);
+        }
+
+        // Handle feedback form submission
+        document.getElementById('feedback-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const feedback = document.getElementById('feedback').value;
+            alert(`Feedback submitted: ${feedback}`);
+            document.getElementById('feedback').value = '';
         });
-    }
 
-    // Handle receiving an order
-    function receiveOrder(orderId) {
-        alert(`Order #${orderId} received!`);
-    }
-
-    // Handle feedback form submission
-    document.getElementById('feedback-form').addEventListener('submit', function(event) {
-        event.preventDefault();
-        const feedback = document.getElementById('feedback').value;
-        alert(`Feedback submitted: ${feedback}`);
-        document.getElementById('feedback').value = '';
-    });
-
-    // Initialize page
-    displayGreeting();
-    displayOrders();
+        // Initialize page
+        displayGreeting();
+        loadProfileData();
 
 </script>
 <script src="scripts.js"></script>

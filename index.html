@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HIGH-TECH STEEL WORKS LTD</title>
+    <title>HIGH-TECH STEEL WORKS LTD</title> 
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <header>
-        <img src="./gallery/Logo.jpg" alt="logo" class="logo">
+        <img src="./gallery/Logo.jpg" alt="logo" class="logo"><p id="backToTopBtn" title="Back to top"></p>
         <nav><h1>High-Tech Steel Works Ltd </h1></nav>
         <nav>
             <ul>
@@ -28,7 +28,7 @@
                     <a href="./equipment.html" class="nav">Equipment</a>
                     <a href="./cart_page.html" class="nav">Cart</a>
                     <a href="#contacts" class="nav">Contact Us</a>
-                    <a href="profile" class="nav">Profile</a>
+                    <a href="./profile.html" class="nav">Profile</a>
                     <!-- <p id="watch-video-btn"></p>   -->
                 </li>
             </ul>
@@ -43,10 +43,10 @@
         <div class="container" >
             <div id="about-us" class="secti">
                 <h2>Introduction</h2>
-                <p>HIGH-TECH Engineering Solutions is Kenya's leading and fast growing steel fabrication unit, providing engineering services to a host of competent places across the globe. </p>
-                <p>The company's core competency lies in heavy steel fabrication, supply of welding machines and assembly of steel structures, materials handling, equipment and steel processing for domestic and international projects.</p>
+                <p>HIGH-TECH Engineering Solutions is Kenya's leading and fast growing steel fabrication unit, providing engineering services to a host of competent places across the globe. </p>                
                 <p>Incorporated in 2016, HIGH-TECH ENGINEERING SOLUTIONS is a private Limited Company. It was acquired by the Director Mr. Oscar Obul. Then the company had only 3 employees and since then Mr. Obul has worked to give it a new look of life and turn it into Kenya's leading steel fabrication company. </p>
                 <p>Anything in steel is coined by him and he has been the guiding principle since 2016 through his excellent and innovative ideas.</p>
+                <p>The company's core competency lies in heavy steel fabrication, supply of welding machines and assembly of steel structures, materials handling, equipment and steel processing for domestic and international projects.</p>
                 <p>HIGH-TECH is competing for the worlds No.1 position in Fabrication by providing quality services to all our clients.</p>
                 <p>Presently the company has been investing heavily in highly modern <a href="./products.html" class="">Security steel doors</a>, <a href="./products.html" class="">Windows</a>, <a href="./products.html" class="">Gates</a>, <a href="./products.html" class="">Balcony and staircase grills</a>, <a href="./products.html" class="">Godown steel structures</a>, <a href="./products.html" class="">Steel water towers</a>, <a href="./products.html" class="">and All types of steel works.</a></p>
                 <p>Having a workforce of over 30 employees. Major expansions are underway with plans to have all the required machines instilled for streamlining production around the world.</p>
@@ -84,6 +84,7 @@
         
         <!-- <div class="container" id="video-container"> -->
             <!-- Video Modal -->
+            
             <div id="video-modal">
                 <div id="video-container">
                     <span id="close-btn">&times;</span>
@@ -91,9 +92,11 @@
                         <source src="./gallery/Download.mp4" type="video/mp4">
                         <source src="./gallery/Download2.mp4" type="video/webm">
                         Your browser does not support the video tag.
+                        <div id="video-title">Playing: Video 1</div>
                     </video>
-                    <div id="video-title">Playing: Video 1</div>
+                   
                 </div>
+               
             </div>
             <!-- Video Modal -->
             <!-- <div id="video-modal">
@@ -115,7 +118,7 @@
             </div> -->
     <hr>           
     <br>
-            <button id="backToTopBtn" title="Back to top">^</button>
+            <button><a href="#backToTopBtn" class="pagination">^</a> </button>
         
         
     </main>
@@ -167,7 +170,7 @@
         // Fetch the list of videos from the server or use fallback
         async function loadVideos() {
             try {
-                const response = await fetch('http://localhost:3000/video-list');
+                const response = await fetch('http://localhost:3000/C:\Users\Admin\Dropbox\Div Code Universe\Clients\High-Tech-E-Commerce-Website\gallery');
                 if (!response.ok) throw new Error('Network response was not ok');
                 videos = await response.json();
 
@@ -214,11 +217,11 @@
         <div class="social-links">
             <h2>Contact us through:</h2>
             <a href="mailto:info@high-tech-steel-works-ltd.co.ke" aria-label="Email us at High-Tech Steel Works">Email Us</a> |
-            <a href="https://wa.me/0724376109" aria-label="Chat with us on WhatsApp">WhatsApp Us</a> |
-            <a href="tel:0723536999" aria-label="Call High-Tech Steel Works">Call: 0723536999</a>
+            <a href="https://wa.me/+254724376109" aria-label="Chat with us on WhatsApp">WhatsApp Us</a> |
+            <a href="tel:+254723536999" aria-label="Call High-Tech Steel Works">Call: +254 723 536 999</a>
         </div>
+        
         <div class="social-links">
-            <h2></h2>
             <img src="./gallery/Facebook.jpg" alt="facebook"><a href="#"> |</a> 
             <a href="#"> Twitter |</a> 
             <a href="#"> Instagram |</a> 
