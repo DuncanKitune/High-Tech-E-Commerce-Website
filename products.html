@@ -73,306 +73,267 @@
     
    <script>
     // Initialize data
-let cart = JSON.parse(localStorage.getItem('cart')) || [];
-const products = [
-    {
-        id: 1,
-        name: "Pivot Steel Door (Plain)",
-        category: "doors",
-        variants: [
-            { variantId: 103, size: "Height: 2400cm. Width: 1800cm", color: "Black", price: 68000.00, time:"Production time: 7 Days", images: ["gallery/Pivot steel door design  4.jpg", "gallery/Pivot steel door design  3.jpg", "gallery/Pivot steel door design  2.jpg", "gallery/Pivot steel door design 1.jpg", "gallery/Pivot steel door design.jpg"] },
-            { variantId: 101, size: "Height: 2400cm. Width: 1500cm", color: "White", price: 60000.00, time:"Production time: 7 Days", images: ["gallery/Pivot steel door design 13.jpg", "gallery/Pivot steel door design 12.jpg","gallery/Pivot steel door design 11.jpg", "gallery/Pivot steel door design 10.jpg", "gallery/Pivot steel door design 9.jpg"] },
-            { variantId: 102, size: "Height: 2400cm. Width: 1200cm", color: "White", price: 50000.00, time:"Production time: 7 Days", images: ["gallery/Pivot steel door design 8.jpg", "gallery/Pivot steel door design 7.jpg", "gallery/Pivot steel door design 6.jpg", "gallery/Pivot steel door design 5.jpg", "gallery/Pivot steel door design  14.jpg"] },
-            
-        ]
-    },
-    {
-        id: 2,
-        name: "Pivot Steel Door (With Mahogany Cladding on Top)",
-        category: "security_doors",
-        variants: [
-            { variantId: 201, size: "Height: 2400cm. Width: 1200cm", color: "Mahogany", price: 75000, time:"Production time: 10 Days", images: ["gallery/Pivot steel doors with mahogany wood cladding on top 1.jpg", "gallery/Pivot steel doors with mahogany wood cladding on top 2.jpg", "gallery/Pivot steel doors with mahogany wood cladding on top 3.jpg"] },
-            { variantId: 202, size: "Height: 2400cm. Width: 1500cm", color: "Black", price: 80000.00, time:"Production time: 10 Days", images: ["gallery/Pivot steel doors with mahogany wood cladding on top 4.jpg", "gallery/Pivot steel doors with mahogany wood cladding on top 8.jpg"] },
-            { variantId: 203, size: "Height: 2400cm. Width: 1800cm", color: "Black", price: 90000.00, time:"Production time: 10 Days", images: ["gallery/Pivot steel doors with mahogany wood cladding on top 9.jpg", "gallery/Pivot steel doors with mahogany wood cladding on top.jpg"] }
-        ]
-    },
-    {
-        id: 3,
-        name: "Single Leaf Steel Door",
-        category: "doors",
-        variants: [
-            { variantId: 301, size: "Height: 2600cm. Width: 900cm", color: "Mahogany", price: 36000, time:"Production time: 7 Days", images: ["gallery/Single leaf  steel door.jpg", "gallery/Single leaf  steel door 1.jpg", "gallery/Single leaf  steel door 2.jpg", "gallery/Single leaf  steel door 3.jpg", "gallery/Single leaf  steel door 4.jpg", "gallery/Single leaf  steel door 5.jpg"] },
-            { variantId: 302, size: "Height: 2400cm. Width: 900cm", color: "Black", price: 33000.00, time:"Production time: 7 Days", images: ["gallery/Single leaf  steel door 14.jpg",  "gallery/Single leaf  steel door 8.jpg", "gallery/Single leaf  steel door 9.jpg", "gallery/Single leaf  steel door 10.jpg", "gallery/Single leaf  steel door 11.jpg", "gallery/Single leaf  steel door 12.jpg"] },
-            { variantId: 303, size: "Height: 2200cm. Width: 1800cm", color: "Black", price: 30000.00, time:"Production time: 7 Days", images: ["gallery/Single leaf  steel door 15.jpg","gallery/Single leaf  steel door 6.jpg", "gallery/Single leaf  steel door 18.jpg", "gallery/Single leaf  steel door 17.jpg" ,  "gallery/Single leaf  steel door 16.jpg"] }
-        ]
-    },
-    {
-        id: 4,
-        name: "Single Leaf Steel Door (With Mahogany Cladding on Top)",
-        category: "doors",
-        variants: [
-            { variantId: 401, size: "Height: 2600cm. Width: 900cm", color: "Mahogany", price: 52000, time:"Production time: 7 Days", images: ["gallery/Single leaf steel door MWCoT 1.jpg", "gallery/Single leaf steel door MWCoT 2.jpg", "gallery/Single leaf steel door MWCoT 3.jpg", "gallery/Single leaf steel door MWCoT 4.jpg"] },
-            { variantId: 402, size: "Height: 2400cm. Width: 900cm", color: "Black", price: 52000.00, time:"Production time: 7 Days", images: ["gallery/Single leaf steel door MWCoT.jpg",  "gallery/Single leaf steel door MWCoT 3.jpg"] },
-            { variantId: 403, size: "Height: 2200cm. Width: 1800cm", color: "Black", price: 52000.00, time:"Production time: 7 Days", images: ["gallery/Single leaf steel door MWCoT 5.jpg","gallery/Single leaf steel door MWCoT 6.jpg",] }
-        ]
-    },
-    {
-        id: 5,
-        name: "Double Leaf Steel Door",
-        category: "doors",
-        variants: [
-            { variantId: 501, size: "Height: 2500cm. Width: 1400cm", color: "Mahogany", price: 40000, time:"Production time: 10 Days", images: ["gallery/Double leaf steel door.jpg", "gallery/Double leaf  steel door 1.jpg", "gallery/Double leaf steel door 2.jpg", "gallery/Double leaf steel door 3.jpg", "gallery/Double leaf steel door 4.jpg", "gallery/Double leaf steel door 5.jpg", "gallery/Double leaf steel door 6.jpg", "gallery/Double leaf steel door 7.jpg"] },
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    const products = [
+        {
+            id: 1,
+            name: "Pivot Steel Door (Plain)",
+            category: "doors",
+            variants: [
+                { variantId: 103, size: "Height: 2400cm. Width: 1800cm", color: "Black", price: 68000.00, time:"Production time: 7 Days", images: ["gallery/Pivot steel door design  4.jpg", "gallery/Pivot steel door design  3.jpg", "gallery/Pivot steel door design  2.jpg", "gallery/Pivot steel door design 1.jpg"] },
+                { variantId: 101, size: "Height: 2400cm. Width: 1500cm", color: "White", price: 60000.00, time:"Production time: 7 Days", images: ["gallery/Pivot steel door design 13.jpg", "gallery/Pivot steel door design 12.jpg","gallery/Pivot steel door design 11.jpg", "gallery/Pivot steel door design 10.jpg", "gallery/Pivot steel door design 9.jpg"] },
+                { variantId: 102, size: "Height: 2400cm. Width: 1200cm", color: "White", price: 50000.00, time:"Production time: 7 Days", images: [ "gallery/Pivot steel door design 7.jpg", "gallery/Pivot steel door design 6.jpg", "gallery/Pivot steel door design 5.jpg", "gallery/Pivot steel door design  14.jpg", "gallery/Pivot steel door design 8.jpg",] }                
+            ]
+        },
+        {
+            id: 2,
+            name: "Pivot Steel Door (With Mahogany Cladding on Top)",
+            category: "security_doors",
+            variants: [
+                { variantId: 201, size: "Height: 2400cm. Width: 1200cm", color: "Mahogany", price: 75000, time:"Production time: 10 Days", images: ["gallery/Pivot steel doors with mahogany wood cladding on top 1.jpg", "gallery/Pivot steel doors with mahogany wood cladding on top 2.jpg", "gallery/Pivot steel doors with mahogany wood cladding on top 3.jpg"] },
+                { variantId: 202, size: "Height: 2400cm. Width: 1500cm", color: "Black", price: 80000.00, time:"Production time: 10 Days", images: ["gallery/Pivot steel doors with mahogany wood cladding on top 4.jpg", "gallery/Pivot steel doors with mahogany wood cladding on top 8.jpg"] },
+                { variantId: 203, size: "Height: 2400cm. Width: 1800cm", color: "Black", price: 90000.00, time:"Production time: 10 Days", images: ["gallery/Pivot steel doors with mahogany wood cladding on top 9.jpg", "gallery/Pivot steel doors with mahogany wood cladding on top.jpg"] }
+            ]
+        },
+        {
+            id: 3,
+            name: "Single Leaf Steel Door",
+            category: "doors",
+            variants: [
+                { variantId: 301, size: "Height: 2600cm. Width: 900cm", color: "Mahogany", price: 36000, time:"Production time: 7 Days", images: ["gallery/Single leaf  steel door.jpg", "gallery/Single leaf  steel door 1.jpg",  "gallery/Single leaf  steel door 3.jpg", "gallery/Single leaf  steel door 4.jpg", "gallery/Single leaf  steel door 5.jpg"] },
+                { variantId: 302, size: "Height: 2400cm. Width: 900cm", color: "Black", price: 33000.00, time:"Production time: 7 Days", images: ["gallery/Single leaf  steel door 14.jpg",  "gallery/Single leaf  steel door 8.jpg", "gallery/Single leaf  steel door 9.jpg", "gallery/Single leaf  steel door 10.jpg", "gallery/Single leaf  steel door 11.jpg", "gallery/Single leaf  steel door 12.jpg"] },
+                { variantId: 303, size: "Height: 2200cm. Width: 900cm", color: "Black", price: 30000.00, time:"Production time: 7 Days", images: ["gallery/Single leaf  steel door 15.jpg","gallery/Single leaf  steel door 6.jpg", "gallery/Single leaf  steel door 18.jpg", "gallery/Single leaf  steel door 17.jpg" ,  "gallery/Single leaf  steel door 16.jpg"] }
+            ]
+        },
+        {
+            id: 4,
+            name: "Single Leaf Steel Door (With Mahogany Cladding on Top)",
+            category: "doors",
+            variants: [
+                { variantId: 401, size: "Height: 2600cm. Width: 900cm", color: "Mahogany", price: 52000, time:"Production time: 7 Days", images: ["gallery/Single leaf steel door MWCoT 1.jpg", "gallery/Single leaf steel door MWCoT 2.jpg", "gallery/Single leaf steel door MWCoT 3.jpg", "gallery/Single leaf steel door MWCoT 4.jpg"] },
+                { variantId: 402, size: "Height: 2400cm. Width: 900cm", color: "Black", price: 52000.00, time:"Production time: 7 Days", images: ["gallery/Single leaf steel door MWCoT.jpg",  "gallery/Single leaf steel door MWCoT 3.jpg", "gallery/Single leaf steel door MWCoT 5.jpg"] }
+            ]
+        },
+        {
+            id: 5,
+            name: "Double Leaf Steel Door",
+            category: "doors",
+            variants: [
+                { variantId: 501, size: "Height: 2500cm. Width: 1400cm", color: "Mahogany", price: 40000, time:"Production time: 10 Days", images: ["gallery/Double leaf steel door.jpg", "gallery/Double leaf  steel door 1.jpg", "gallery/Double leaf steel door 2.jpg", "gallery/Double leaf steel door 3.jpg", "gallery/Double leaf steel door 4.jpg", "gallery/Double leaf steel door 5.jpg", "gallery/Double leaf steel door 6.jpg", "gallery/Double leaf steel door 7.jpg"] },
 
-            { variantId: 502, size: "Height: 2200cm. Width: 1200cm", color: "Black", price: 40000.00, time:"Production time: 10 Days", images: ["gallery/Double leaf steel door 8.jpg",  "gallery/Double leaf steel door 9.jpg", "gallery/Double leaf steel door 10.jpg", "gallery/Double leaf steel door 11.jpg", "gallery/Double leaf steel door 12.jpg", "gallery/Double leaf steel door 13.jpg" ,  "gallery/Double leaf steel door 14.jpg"] },
+                { variantId: 502, size: "Height: 2200cm. Width: 1200cm", color: "Black", price: 40000.00, time:"Production time: 10 Days", images: ["gallery/Double leaf steel door 8.jpg",  "gallery/Double leaf steel door 9.jpg", "gallery/Double leaf steel door 10.jpg", "gallery/Double leaf steel door 11.jpg", "gallery/Double leaf steel door 12.jpg", "gallery/Double leaf steel door 13.jpg" ,  "gallery/Double leaf steel door 14.jpg"] },
 
-            { variantId: 503, size: "Height: 2200cm. Width: 1000cm", color: "Black", price: 40000.00, time:"Production time: 10 Days", images: ["gallery/Double leaf steel door 15.jpg","gallery/Double leaf steel door 16.jpg", "gallery/Double leaf steel door 17.jpg" ,  "gallery/Double leaf steel door 18.jpg" ,  "gallery/Double leaf steel door 19.jpg" ] }
-        ]
-    },
-    {
-        id: 6,
-        name: "Sliding Gates",
-        category: "gates",
-        variants: [
-            { variantId: 601, size: "Height: 8ft. Width: 13ft", color: "Mahogany", price: 85000, time:"Production time:  Days", images: ["gallery/Sliding gates.jpg", "gallery/Sliding gates 1.jpg", "gallery/Sliding gates 2.jpg", "gallery/Sliding gates 3.jpg", "gallery/Sliding gates 4.jpg"] },
+                { variantId: 503, size: "Height: 2200cm. Width: 1000cm", color: "Black", price: 40000.00, time:"Production time: 10 Days", images: ["gallery/Double leaf steel door 15.jpg","gallery/Double leaf steel door 16.jpg", "gallery/Double leaf steel door 17.jpg" ,  "gallery/Double leaf steel door 18.jpg" ,  "gallery/Double leaf steel door 19.jpg" ] }
+            ]
+        },
+        {
+            id: 6,
+            name: "Sliding Gates",
+            category: "gates",
+            variants: [
+                { variantId: 601, size: "Height: 8ft. Width: 13ft", color: "Mahogany", price: 85000, time:"Production time:  Days", images: ["gallery/Sliding gates.jpg", "gallery/Sliding gates 1.jpg", "gallery/Sliding gates 2.jpg", "gallery/Sliding gates 3.jpg", "gallery/Sliding gates 4.jpg"] },
 
-            { variantId: 602, size: "Height: 9ft. Width: 5ft", color: "Black", price: 95000.00, time:"Production time:  Days", images: ["gallery/Sliding gates 5.jpg",  "gallery/Sliding gates 6.jpg", "gallery/Sliding gates 7.jpg"] },
+                { variantId: 602, size: "Height: 9ft. Width: 5ft", color: "Black", price: 95000.00, time:"Production time:  Days", images: ["gallery/Sliding gates 5.jpg",  "gallery/Sliding gates 6.jpg", "gallery/Sliding gates 7.jpg", "gallery/Sliding gates 8.jpg","gallery/Sliding gates 9.jpg"] }
+            ]
+        },
+        {
+            id: 7,
+            name: "Normal Opening Gates",
+            category: "gates",
+            variants: [
+                { variantId: 701, size: "Height: 9ft. Width: 13ft", color: "Mahogany", price: 75000, time:"Production time:  Days", images: ["gallery/Normal Opening Gates.jpg", "gallery/Normal Opening Gates 1.jpg", "gallery/Normal Opening Gates 2.jpg", "gallery/Normal Opening Gates 3.jpg", "gallery/Normal Opening Gates 5.jpg",  "gallery/Normal Opening Gates 6.jpg", "gallery/Normal Opening Gates 7.jpg", "gallery/Normal Opening Gates 8.jpg", "gallery/Normal Opening Gates 10.jpg", "gallery/Normal Opening Gates 11.jpg", "gallery/Normal Opening Gates 4.jpg"] }
+            ]
+        },
+        {
+            id: 8,
+            name: "Windows",
+            category: "windows",
+            variants: [
+                { variantId: 801, size: "Height: 4ft. Width: 4ft", color: "Mahogany", price: 9000, time:"Production time:  3 Days", images: ["gallery/Windows.jpg", "gallery/Windows 1.jpg", "gallery/Windows 2.jpg"] },
 
-            { variantId: 603, size: "Height: 9ft. Width: 5ft", color: "Black", price: 95000.00, time:"Production time:  Days", images: ["gallery/Sliding gates 8.jpg","gallery/Sliding gates 9.jpg", "gallery/Sliding gates 10.jpg"] }
-        ]
-    },
-    {
-        id: 7,
-        name: "Normal Opening Gates",
-        category: "gates",
-        variants: [
-            { variantId: 701, size: "Height: 9ft. Width: 13ft", color: "Mahogany", price: 75000, time:"Production time:  Days", images: ["gallery/Normal Opening Gates.jpg", "gallery/Normal Opening Gates 1.jpg", "gallery/Normal Opening Gates 2.jpg", "gallery/Normal Opening Gates 3.jpg"] },
+                { variantId: 802, size: "Height: 5ft. Width: 5ft", color: "Black", price: 11000.00, time:"Production time:  3 Days", images: ["gallery/Windows 4.jpg",  "gallery/Windows 5.jpg"] },
 
-            { variantId: 702, size: "Height: 9ft. Width: 13ft", color: "Black", price: 75000.00, time:"Production time:  Days", images: ["gallery/Normal Opening Gates 5.jpg",  "gallery/Normal Opening Gates 6.jpg", "gallery/Normal Opening Gates 7.jpg", "gallery/Normal Opening Gates 8.jpg"] },
+                { variantId: 803, size: "Height: 6ft. Width: 6ft", color: "Black", price: 14500.00, time:"Production time:  3 Days", images: ["gallery/Windows 6.jpg", "gallery/Windows 3.jpg", "gallery/Windows 7.jpg"] },
 
-            { variantId: 703, size: "Height: 9ft. Width: 13ft", color: "Black", price: 75000.00, time:"Production time:  Days", images: ["gallery/Normal Opening Gates 10.jpg", "gallery/Normal Opening Gates 11.jpg", "gallery/Normal Opening Gates 4.jpg"] }
-        ]
-    },
-    {
-        id: 7,
-        name: "Windows",
-        category: "windows",
-        variants: [
-            { variantId: 701, size: "Height: 4ft. Width: 4ft", color: "Mahogany", price: 9000, time:"Production time:  3 Days", images: ["gallery/Windows.jpg", "gallery/Windows 1.jpg", "gallery/Windows 2.jpg"] },
+                { variantId: 804, size: "Height: 6ft. Width: 7ft", color: "Black", price: 15500.00, time:"Production time:  3 Days", images: ["gallery/Windows 8.jpg", "gallery/Windows 9.jpg"] }
+            ]
+        },
+        {
+            id: 9,
+            name: "Normal Balcony & Stairs Grills",
+            category: "grills",
+            variants: [
+                { variantId: 901, size: "Square Meter", color: "Mahogany", price: 4000, time:"Production time:  3 Days", images: ["gallery/Balcony.jpg", "gallery/Balcony3.jpg", "gallery/Balcony4.jpg", "gallery/Balcony5.jpg"] },
 
-            { variantId: 702, size: "Height: 5ft. Width: 5ft", color: "Black", price: 11000.00, time:"Production time:  3 Days", images: ["gallery/Windows 4.jpg",  "gallery/Windows 5.jpg"] },
+                { variantId: 902, size: "Square Meter", color: "Black", price:4000.00, time:"Production time:  3 Days", images: ["gallery/Staircase.jpg", "gallery/Balcony2.jpg", "gallery/Staircase1.jpg",  "gallery/Staircase2.jpg",  "gallery/Staircase3.jpg",  "gallery/Staircase4.jpg",  "gallery/Staircase5.jpg", "gallery/Staircase6.jpg",  "gallery/Staircase7.jpg",  "gallery/Staircase8.jpg",  "gallery/Staircase9.jpg",  "gallery/Staircase10.jpg",  "gallery/Staircase11.jpg"] }
+            ]
+        },
+        {
+            id: 10,
+            name: "CNC & Laser Cut Balcony & Stairs Grills",
+            category: "grills",
+            variants: [
+                { variantId: 1001, size: "Square Meter", color: "", price: 6000, time:"Production time:  3 Days", images: ["gallery/Laser1.jpg", "gallery/Laser2.jpg", "gallery/Laser5.jpg"] },
+                { variantId: 1002, size: "Square Meter", color: "", price: 6000, time:"Production time:  3 Days", images: ["gallery/Laser3.jpg", "gallery/Laser4.jpg"] }
+            ]
+        },
+        // Add more products as needed
+    ];
 
-            { variantId: 703, size: "Height: 6ft. Width: 6ft", color: "Black", price: 14500.00, time:"Production time:  3 Days", images: ["gallery/Windows 6.jpg", "gallery/Windows 3.jpg", "gallery/Windows 7.jpg"] },
+    // Pagination variables
+    const productsPerPage = 6;
+    let currentPage = 1;
 
-            { variantId: 704, size: "Height: 6ft. Width: 7ft", color: "Black", price: 15500.00, time:"Production time:  3 Days", images: ["gallery/Windows 8.jpg", "gallery/Windows 9.jpg"] }
-        ]
-    },
-    // Add more products as needed
-];
+    // Display products on load
+    document.addEventListener("DOMContentLoaded", () => {
+        displayProducts(products);
+        updatePagination();
+        displayCart();
+    });
 
-// Pagination variables
-const productsPerPage = 5;
-let currentPage = 1;
+    // Display Products based on current filters, sort, and search
+    function displayProducts(filteredProducts) {
+        const productGrid = document.getElementById('products');
+        productGrid.innerHTML = '';
+        
+        // Apply pagination
+        const startIndex = (currentPage - 1) * productsPerPage;
+        const paginatedProducts = filteredProducts.slice(startIndex, startIndex + productsPerPage);
 
-// Display products on load
-document.addEventListener("DOMContentLoaded", () => {
-    displayProducts(products);
-    updatePagination();
-    displayCart();
-});
-
-// Display Products based on current filters, sort, and search
-function displayProducts(filteredProducts) {
-    const productGrid = document.getElementById('products');
-    productGrid.innerHTML = '';
-    
-    // Apply pagination
-    const startIndex = (currentPage - 1) * productsPerPage;
-    const paginatedProducts = filteredProducts.slice(startIndex, startIndex + productsPerPage);
-
-    paginatedProducts.forEach(product => {
-        product.variants.forEach(variant => {
-            const productDiv = document.createElement('div');
-            productDiv.classList.add('product');
-            productDiv.innerHTML = `
-                <h3>${product.name} </h3>
-                <p>${variant.size} </p>
-                <p>Colors: (${variant.color})</p>
-                <p> ${variant.time}</p>
-                <p>Price: KES ${variant.price.toFixed(2)}</p>
-                <button onclick="addToCart(${product.id}, ${variant.variantId})">Add to Cart</button>
-                <div class="images">
-                    ${variant.images.map(img => `<img src="${img}" alt="${product.name}" >`).join('')}
-                </div>
-                
-                
-            `;
-            productGrid.appendChild(productDiv);
+        paginatedProducts.forEach(product => {
+            product.variants.forEach(variant => {
+                const productDiv = document.createElement('div');
+                productDiv.classList.add('product');
+                productDiv.innerHTML = `
+                    <h3>${product.name} </h3>
+                    <p>${variant.size} </p>
+                    <p>Colors: (${variant.color})</p>
+                    <p> ${variant.time}</p>
+                    <p>Price: KES ${variant.price.toFixed(2)}</p>
+                    <button onclick="addToCart(${product.id}, ${variant.variantId})">Add to Cart</button>
+                    <div class="images">
+                        ${variant.images.map(img => `<img src="${img}" alt="${product.name}" >`).join('')}
+                    </div>                    
+                `;
+                productGrid.appendChild(productDiv);
+            });
         });
-    });
-}
-
-// Filter products by category and search term
-function filterProducts() {
-    const category = document.getElementById('category-filter').value;
-    const searchQuery = document.getElementById('search-box').value.toLowerCase();
-    
-    const filtered = products.filter(product => 
-        (category === 'all' || product.category === category) &&
-        product.name.toLowerCase().includes(searchQuery)
-    );
-    
-    displayProducts(filtered);
-    updatePagination(filtered.length);
-}
-
-// Sort products by price
-function sortProducts() {
-    const sortOrder = document.getElementById('price-sort').value;
-    let sortedProducts = [...products];
-    
-    if (sortOrder === 'low-high') {
-        sortedProducts.sort((a, b) => a.variants[0].price - b.variants[0].price);
-    } else if (sortOrder === 'high-low') {
-        sortedProducts.sort((a, b) => b.variants[0].price - a.variants[0].price);
     }
 
-    displayProducts(sortedProducts);
-}
+    // Filter products by category and search term
+    function filterProducts() {
+        const category = document.getElementById('category-filter').value;
+        const searchQuery = document.getElementById('search-box').value.toLowerCase();
+        
+        const filtered = products.filter(product => 
+            (category === 'all' || product.category === category) &&
+            product.name.toLowerCase().includes(searchQuery)
+        );
+        
+        displayProducts(filtered);
+        updatePagination(filtered.length);
+    }
 
-// Combined filter and sort function
-function filterAndSortProducts() {
-    filterProducts();
-    sortProducts();
-}
-// Filter, sort, and search combined
-function filterAndSortProducts() {
-        let filteredProducts = products;
-
-        // Apply search filter
-        const searchTerm = document.getElementById('search-box').value.toLowerCase();
-        if (searchTerm) {
-            filteredProducts = filteredProducts.filter(product => product.name.toLowerCase().includes(searchTerm));
+    // Sort products by price
+    function sortProducts() {
+        const sortOrder = document.getElementById('price-sort').value;
+        let sortedProducts = [...products];
+        
+        if (sortOrder === 'low-high') {
+            sortedProducts.sort((a, b) => a.variants[0].price - b.variants[0].price);
+        } else if (sortOrder === 'high-low') {
+            sortedProducts.sort((a, b) => b.variants[0].price - a.variants[0].price);
         }
-        displayProducts(filteredProducts);
+
+        displayProducts(sortedProducts);
     }
 
+    // Combined filter and sort function
+    function filterAndSortProducts() {
+        filterProducts();
+        sortProducts();
+    }
+    // Filter, sort, and search combined
+    function filterAndSortProducts() {
+            let filteredProducts = products;
 
-// Pagination
-function updatePagination(totalItems = products.length) {
-    const totalPages = Math.ceil(totalItems / productsPerPage);
-    document.getElementById('page-info').innerText = `Page ${currentPage} of ${totalPages}`;
-    document.getElementById('prev-page').disabled = currentPage === 1;
-    document.getElementById('next-page').disabled = currentPage === totalPages;
-}
+            // Apply search filter
+            const searchTerm = document.getElementById('search-box').value.toLowerCase();
+            if (searchTerm) {
+                filteredProducts = filteredProducts.filter(product => product.name.toLowerCase().includes(searchTerm));
+            }
+            displayProducts(filteredProducts);
+        }
 
-function nextPage() {
-    currentPage += 1;
-    filterAndSortProducts();
-}
 
-function prevPage() {
-    currentPage -= 1;
-    filterAndSortProducts();
-}
-
-// Add product to cart
-function addToCart(productId, variantId) {
-    const product = products.find(p => p.id === productId);
-    const variant = product.variants.find(v => v.variantId === variantId);
-    
-    const cartItem = cart.find(item => item.variantId === variantId);
-    if (cartItem) {
-        cartItem.quantity += 1;
-    } else {
-        cart.push({ ...variant, name: product.name, quantity: 1 });
+    // Pagination
+    function updatePagination(totalItems = products.length) {
+        const totalPages = Math.ceil(totalItems / productsPerPage);
+        document.getElementById('page-info').innerText = `Page ${currentPage} of ${totalPages}`;
+        document.getElementById('prev-page').disabled = currentPage === 1;
+        document.getElementById('next-page').disabled = currentPage === totalPages;
     }
 
-    localStorage.setItem('cart', JSON.stringify(cart));
-    alert("Product added to cart!");
-    displayCart();
-}
+    function nextPage() {
+        currentPage += 1;
+        filterAndSortProducts();
+    }
 
-// Display cart contents
-function displayCart() {
-    const cartItemsDiv = document.getElementById('cart-items');
-    if (!cartItemsDiv) return; // Only run if on the cart page
-    
-    cartItemsDiv.innerHTML = '';
-    let totalPrice = 0;
+    function prevPage() {
+        currentPage -= 1;
+        filterAndSortProducts();
+    }
 
-    cart.forEach(item => {
-        const itemDiv = document.createElement('div');
-        itemDiv.classList.add('cart-item');
-        itemDiv.innerHTML = `
-            <h3>${item.name} - ${item.size} (${item.color})</h3>
-            <p>Price: $${item.price.toFixed(2)}</p>
-            <p>Quantity: <input type="number" value="${item.quantity}" onchange="updateQuantity(${item.variantId}, this.value)"></p>
-            <button onclick="removeFromCart(${item.variantId})">Remove</button>
-            <div class="images">
-                ${item.images.map(img => `<img src="${img}" width="50">`).join('')}
-            </div>
-        `;
-        cartItemsDiv.appendChild(itemDiv);
-        totalPrice += item.price * item.quantity;
-    });
+    // Add product to cart
+    function addToCart(productId, variantId) {
+        const product = products.find(p => p.id === productId);
+        const variant = product.variants.find(v => v.variantId === variantId);
+        
+        const cartItem = cart.find(item => item.variantId === variantId);
+        if (cartItem) {
+            cartItem.quantity += 1;
+        } else {
+            cart.push({ ...variant, name: product.name, quantity: 1 });
+        }
 
-    document.getElementById('total-price').innerText = `$${totalPrice.toFixed(2)}`;
-}
-
-// Update quantity of items in cart
-function updateQuantity(variantId, quantity) {
-    const cartItem = cart.find(item => item.variantId === variantId);
-    if (cartItem) {
-        cartItem.quantity = Number(quantity);
         localStorage.setItem('cart', JSON.stringify(cart));
+        alert(`${product.name}. ${variant.size} has been added to your cart.`);
+        // alert('${product.name} added to cart!');
         displayCart();
     }
-}
 
-// Remove item from cart
-function removeFromCart(variantId) {
-    cart = cart.filter(item => item.variantId !== variantId);
-    localStorage.setItem('cart', JSON.stringify(cart));
-    displayCart();
-}
+    
 
-// Clear cart function
-function clearCart() {
-    cart = [];
-    localStorage.setItem('cart', JSON.stringify(cart));
-    displayCart();
-}
+    // Horizontal scroll for products
+    const productsContainer = document.getElementById("products");
 
-// Horizontal scroll for products
-const productsContainer = document.getElementById("products");
+    document.getElementById("scroll-right").addEventListener("click", () => {
+        productsContainer.scrollBy({ left: 300, behavior: 'smooth' });
+    });
 
-document.getElementById("scroll-right").addEventListener("click", () => {
-    productsContainer.scrollBy({ left: 300, behavior: 'smooth' });
-});
+    document.getElementById("scroll-left").addEventListener("click", () => {
+        productsContainer.scrollBy({ left: -300, behavior: 'smooth' });
+    });
+    const imageSlider = document.querySelector('.image-slider');
+    let currentIndex = 0;
 
-document.getElementById("scroll-left").addEventListener("click", () => {
-    productsContainer.scrollBy({ left: -300, behavior: 'smooth' });
-});
-const imageSlider = document.querySelector('.image-slider');
-let currentIndex = 0;
+    document.getElementById('scroll-right').addEventListener('click', () => {
+        const images = document.querySelectorAll('.image-slider img');
+        if (currentIndex < images.length - 1) {
+            currentIndex++;
+            updateSliderPosition();
+        }
+    });
 
-document.getElementById('scroll-right').addEventListener('click', () => {
-    const images = document.querySelectorAll('.image-slider img');
-    if (currentIndex < images.length - 1) {
-        currentIndex++;
-        updateSliderPosition();
-    }
-});
+    document.getElementById('scroll-left').addEventListener('click', () => {
+        if (currentIndex > 0) {
+            currentIndex--;
+            updateSliderPosition();
+        }
+    });
 
-document.getElementById('scroll-left').addEventListener('click', () => {
-    if (currentIndex > 0) {
-        currentIndex--;
-        updateSliderPosition();
-    }
-});
-
-function updateSliderPosition() {
-    imageSlider.style.transform = `translateX(-${currentIndex * 100}%)`;
+    function updateSliderPosition() {
+        imageSlider.style.transform = `translateX(-${currentIndex * 100}%)`;
 }
 
 </script>
@@ -394,53 +355,12 @@ function updateSliderPosition() {
         </div>
         <div class="social-links">
             <h2></h2>
-            <img src="./gallery/Facebook.jpg" alt="facebook"><a href="#"> |</a> 
-            <a href="#"> Twitter |</a> 
-            <a href="#"> Instagram |</a> 
+            <img src="./gallery/Facebook.png" alt="facebook"><a href="#"> |</a> 
+            <img src="./gallery/X.png" alt="facebook"><a href="#"> |</a> 
+            <img src="./gallery/Tiktok.jpg" alt="facebook"><a href="#"> |</a> 
         </div>
     </div>
 </footer>
 </html>
 
 
-<!-- <section id="featured-products">
-            <h2>Featured Products</h2>
-            <div class="product-grid">
-                <div class="product">
-                    <img src="product1.jpg" alt="Product 1">
-                    <h2>Product Name</h2>
-                    <p>Description of the product goes here. It can include features, specifications, etc.</p>
-                    <p>Price: $29.99</p>
-                    <button onclick="addToCart(1)">Add to Cart</button>
-                </div>
-                <div class="product">
-                    <img src="product1.jpg" alt="Product 1">
-                    <h2>Product Name</h2>
-                    <p>Description of the product goes here. It can include features, specifications, etc.</p>
-                    <p>Price: $29.99</p>
-                    <button onclick="addToCart(1)">Add to Cart</button>
-                </div>
-                <div class="product">
-                    <img src="product1.jpg" alt="Product 1">
-                    <h2>Product Name</h2>
-                    <p>Description of the product goes here. It can include features, specifications, etc.</p>
-                    <p>Price: $29.99</p>
-                    <button onclick="addToCart(1)">Add to Cart</button>
-                </div>
-                <div class="product">
-                    <img src="product1.jpg" alt="Product 1">
-                    <h2>Product Name</h2>
-                    <p>Description of the product goes here. It can include features, specifications, etc.</p>
-                    <p>Price: $29.99</p>
-                    <button onclick="addToCart(1)">Add to Cart</button>
-                </div>
-                <div class="product">
-                    <img src="product1.jpg" alt="Product 1">
-                    <h2>Product Name</h2>
-                    <p>Description of the product goes here. It can include features, specifications, etc.</p>
-                    <p>Price: $29.99</p>
-                    <button onclick="addToCart(1)">Add to Cart</button>
-                </div>
-                <! More products -->
-            <!-- </div>
-        </section>  -->

@@ -11,6 +11,8 @@
         <img src="./gallery/Logo.jpg" alt="logo" class="logo"><p id="backToTopBtn" title="Back to top"></p>
         <nav><h1>High-Tech Steel Works Ltd </h1></nav>
         <nav>
+            <div class="openMenu"><i class="bars">&#9776;</i></div>
+            <div class="mainMenu">
             <ul>
                 <li>
                     <!-- <a href="#" id="home-button" class="menu-item"></a> -->
@@ -32,6 +34,7 @@
                     <!-- <p id="watch-video-btn"></p>   -->
                 </li>
             </ul>
+            </div>
         </nav>
     </header>
     <hr>
@@ -205,6 +208,21 @@
 
         // Load videos on page load
         loadVideos();
+        // nav menu
+        const mainMenu = document.querySelector('.mainMenu');
+            const closeMenu = document.querySelector('.closeMenu');
+            const openMenu = document.querySelector('.openMenu');
+
+            openMenu.addEventListener('click',show);
+            closeMenu.addEventListener('click',close);
+
+            function show(){
+                mainMenu.style.display = 'flex';
+                mainMenu.style.top = '0';
+            }
+            function close(){
+                mainMenu.style.top = '-100%';
+            }
     </script>
 </body>
 <footer>
@@ -222,9 +240,9 @@
         </div>
         
         <div class="social-links">
-            <img src="./gallery/Facebook.jpg" alt="facebook"><a href="#"> |</a> 
-            <a href="#"> Twitter |</a> 
-            <a href="#"> Instagram |</a> 
+            <img src="./gallery/Facebook.png" alt="facebook"><a href="#"> |</a> 
+            <img src="./gallery/X.png" alt="facebook"><a href="#"> |</a> 
+            <img src="./gallery/Tiktok.jpg" alt="facebook"><a href="#"> |</a>  
         </div>
     </div>
 </footer>
