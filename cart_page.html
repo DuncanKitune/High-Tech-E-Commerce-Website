@@ -84,61 +84,61 @@
             displayCart();
         }
 
-        // // Add product to cart
-        // function addToCart(productId, variantId) {
-        //     const product = products.find(p => p.id === productId);
-        //     const variant = product.variants.find(v => v.variantId === variantId);
+        // Add product to cart
+        function addToCart(productId, variantId) {
+            const product = products.find(p => p.id === productId);
+            const variant = product.variants.find(v => v.variantId === variantId);
             
-        //     const cartItem = cart.find(item => item.variantId === variantId);
-        //     if (cartItem) {
-        //         cartItem.quantity += 1;
-        //     } else {
-        //         cart.push({ ...variant, name: product.name, quantity: 1 });
-        //     }
+            const cartItem = cart.find(item => item.variantId === variantId);
+            if (cartItem) {
+                cartItem.quantity += 1;
+            } else {
+                cart.push({ ...variant, name: product.name, quantity: 1 });
+            }
 
-        //     localStorage.setItem('cart', JSON.stringify(cart));
-        //     alert("Product added to cart!");
-        //     displayCart();
-        // }
+            localStorage.setItem('cart', JSON.stringify(cart));
+            alert("Product added to cart!");
+            displayCart();
+        }
 
-        // // Display cart contents
-        // function displayCart() {
-        //     const cartItemsDiv = document.getElementById('cart-items');
-        //     if (!cartItemsDiv) return; // Only run if on the cart page
+        // Display cart contents
+        function displayCart() {
+            const cartItemsDiv = document.getElementById('cart-items');
+            if (!cartItemsDiv) return; // Only run if on the cart page
             
-        //     cartItemsDiv.innerHTML = '';
-        //     let totalPrice = 0;
+            cartItemsDiv.innerHTML = '';
+            let totalPrice = 0;
 
-        //     cart.forEach(item => {
-        //         const itemDiv = document.createElement('div');
-        //         itemDiv.classList.add('cart-item');
-        //         itemDiv.innerHTML = `
-        //             <h3>${item.name} - ${item.size} (${item.color})</h3>
-        //             <p>Price: $${item.price.toFixed(2)}</p>
-        //             <p>Quantity: <input type="number" value="${item.quantity}" onchange="updateQuantity(${item.variantId}, this.value)"></p>
-        //             <button onclick="removeFromCart(${item.variantId})">Remove</button>
-        //             <div class="images">
-        //                 ${item.images.map(img => `<img src="${img}" width="50">`).join('')}
-        //             </div>
-        //         `;
-        //         cartItemsDiv.appendChild(itemDiv);
-        //         totalPrice += item.price * item.quantity;
-        //     });
+            cart.forEach(item => {
+                const itemDiv = document.createElement('div');
+                itemDiv.classList.add('cart-item');
+                itemDiv.innerHTML = `
+                    <h3>${item.name} - ${item.size} (${item.color})</h3>
+                    <p>Price: $${item.price.toFixed(2)}</p>
+                    <p>Quantity: <input type="number" value="${item.quantity}" onchange="updateQuantity(${item.variantId}, this.value)"></p>
+                    <button onclick="removeFromCart(${item.variantId})">Remove</button>
+                    <div class="images">
+                        ${item.images.map(img => `<img src="${img}" width="50">`).join('')}
+                    </div>
+                `;
+                cartItemsDiv.appendChild(itemDiv);
+                totalPrice += item.price * item.quantity;
+            });
 
-        //     document.getElementById('total-price').innerText = `$${totalPrice.toFixed(2)}`;
-        // }
+            document.getElementById('total-price').innerText = `$${totalPrice.toFixed(2)}`;
+        }
 
-        // // Update quantity of items in cart
-        // function updateQuantity(variantId, quantity) {
-        //     const cartItem = cart.find(item => item.variantId === variantId);
-        //     if (cartItem) {
-        //         cartItem.quantity = Number(quantity);
-        //         localStorage.setItem('cart', JSON.stringify(cart));
-        //         displayCart();
-        //     }
-        // }
+        // Update quantity of items in cart
+        function updateQuantity(variantId, quantity) {
+            const cartItem = cart.find(item => item.variantId === variantId);
+            if (cartItem) {
+                cartItem.quantity = Number(quantity);
+                localStorage.setItem('cart', JSON.stringify(cart));
+                displayCart();
+            }
+        }
     </script>
-    <!-- <script src="scripts.js"></script> -->
+    <script src="scripts.js"></script>
 </body>
 <footer>
     <h1><span>"Home of Experience"</span></h1>
