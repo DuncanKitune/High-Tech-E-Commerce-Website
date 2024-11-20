@@ -49,52 +49,140 @@ h1 span{
     align-items: center;
     color: var(--conservative);
 }
+.logo {
+    height: 3rem;
+    /* width: 3rem; */
+    padding-left: 45%;
+    transition: transform 0.3s ease-in-out;
+}
+.logo:hover{
+    z-index: 2;
+    transform: scale(2); /* Adjust zoom level */
+    margin-left: calc(50vw - (max-content + 20px)); /* Center based on viewport width */
+    justify-items: center;
+    padding: .1rem;
+    transform: rotate(15deg);
+}
 .home-button{
-    background-color: transparent;
-    color: var(--color);
-    border: none;
+    border-top: .1rem solid var(--white);
+    background-color: var(--primary);
+    color: var(--white);
+    display: flex;
+    justify-content: space-between;
+    size: auto;
+    font-size: 1rem;
+    white-space: nowrap;
+    box-shadow: 0.2rem 0.1rem 0.1rem -0.5rem var(--text);
 }
 .home-button:hover{
-    color:var(--gold);
+    /* background-color: var(--background); */
+    box-shadow: 0.1rem 0.25rem 0.25rem 0.1rem var(--text);
+    transform: rotate(.1deg);
     cursor: pointer;
-    text-decoration: underline;
+    /* font-style: italic; */
+    text-transform: inherit;
+    text-decoration: underline solid var(--secondary);
+    /* color: var(--color); */
+    border-radius: 10%;
 }
-nav ul, li{
+ nav ul, li{
     list-style: none;
-    padding: 0;
-    margin: 0;
+    /* padding: 0; */
+    margin: 2rem;
     display: flex;
     gap: 20px;
     align-items: center;
-    text-align: center;
     padding: auto;
     margin: auto;
+    text-align: center;
+    
+    background-color: var(--primary);
+    display: flex;
+    justify-content: space-between;
+    size: auto;
+    font-size: 1rem;
+    white-space: nowrap;
+    box-shadow: 0.2rem 0.1rem 0.1rem -0.5rem var(--text);
 }
 
-/* nav ul, li{
-    list-style: none;
-}*/
 nav a {
     color:var(--conservative);
     text-decoration: none;
-    margin: 0 10px;
-    padding: auto;
-    text-align: center;
+    margin: 5px 10px;
+    padding: .2rem;
+   
 }
 nav a:hover {
-    color:var(--color);
+    /* background-color: var(--background); */
+    box-shadow: 0.1rem 0.25rem 0.25rem 0.1rem var(--text);
+    transform: rotate(.1deg);
     cursor: pointer;
-    text-decoration: underline;
-} 
+    /* font-style: italic; */
+    text-transform: inherit;
+    /* text-decoration: underline solid var(--color); */
+    color: var(--color);
+    border-radius: 10%;
+}  
 
 .menu-item {
     position: relative;
 }
 
+/* side bar  */
+.menu-icon {
+    display: none;
+    font-size: 2rem;
+    cursor: pointer;
+  }
+  
 
-/* Dropdown styling */
+  nav .mainMenu{
+    display: flex;
+    list-style: none;
+  }
+  nav .mainMenu li a {
+    display: inline-block;
+    padding: .5rem;
+    text-decoration: none;
+    /* text-transform: uppercase; */
+    color: var(--conservative);
+    font-size: 1.1rem;
+    margin: .5rem;
+  }
+  nav .mainMenu li a:hover{
+    background-color: var(--background);
+    box-shadow: 0.1rem 0.25rem 0.25rem 0.1rem var(--text);
+    transform: rotate(.1deg);
+    cursor: pointer;
+    font-style: italic;
+    text-transform: inherit;
+    text-decoration: underline solid var(--color);
+    color: var(--color);
+    border-radius: 10%;
+  }
+  nav .openMenu {
+    font-size: 2rem;
+    margin: .5rem;
+    display: none;
+    cursor: pointer;
+    color: var(--color);
+  }
+  nav .closeMenu{
+    color: var(--color);
+  }
+  nav .mainMenu .closeMenu , .icons i {
+    font-size: 2rem;
+    display: none;
+    cursor: pointer;
+  }
+  .fa-facebook:hover(var(--color))
+  .fa-tiktok:hover(var(--color))
+  .fa-x:hover(var(--color))
+  .fa-telegram:hover(var(--color))
+
+  /* Dropdown styling */
 .section-dropdown {
-    
+    display: none;
     position: absolute;
     background-color: var(--conservative);
     list-style: none;
@@ -124,97 +212,7 @@ nav a:hover {
 .menu-item:hover .selection-dropdown {
     display: block;
 }
-.logo {
-    height: 3rem;
-    /* width: 3rem; */
-    padding-left: 45%;
-    transition: transform 0.3s ease-in-out;
-}
-.logo:hover{
-    z-index: 2;
-    transform: scale(1.2); /* Adjust zoom level */
-    margin-left: calc(50vw - (max-content + 20px)); /* Center based on viewport width */
-    justify-items: center;
-    padding: .1rem;
-}
-@media(max-width: 768px){
-    .hero .left img{
-      transition: transform 0.3s ease-in-out;
-      /* display: none; */
-    }
-    .hero .left img:hover{
-        z-index: 2;
-        transform: scale(2); /* Adjust zoom level */
-     } 
-    }
-header nav .left a {
-    color: var(--white);
-    text-decoration: none;
-    margin-right: 2rem;
-    text-transform: uppercase;
-    transition: all 0.2s ease;
-  }
-  header nav .left a:hover {
-    color: var(--primary);
-  }
-  header nav .self {
-    margin-left: 1%;
-    display: none;
-    transform: rotate(15deg);
-  } 
-/* side bar  */
-.menu-icon {
-    display: none;
-    font-size: 2rem;
-    cursor: pointer;
-  }
-  
-  /* .nav {
-    border-top: .1rem solid var(--white);
-    background-color: var(--primary);
-    color: var(--white);
-    display: flex;
-    justify-content: space-between;
-    size: auto;
-    font-size: 1rem;
-    white-space: nowrap;
-    box-shadow: 0.2rem 0.2rem 0.4rem 0.4rem lightgrey;
-  } */
-  nav .mainMenu{
-    display: flex;
-    list-style: none;
-  }
-  nav .mainMenu li a {
-    display: inline-block;
-    padding: .1rem;
-    text-decoration: none;
-    color: var(--white);
-    font-size: 1.1rem;
-    margin: .5rem;
-  }
-  nav .mainMenu li a:hover{
-    background-color: var(--secondary);
-    transform: rotate(.1deg);
-    cursor: pointer;
-    font-style: italic;
-    text-transform: inherit;
-    text-decoration: underline solid var(--secondary);
-  }
-  nav .openMenu {
-    font-size: 2rem;
-    margin: .5rem;
-    display: none;
-    cursor: pointer;
-    color: var(--primary);
-  }
-  nav .closeMenu{
-    color: var(--primary);
-  }
-  nav .mainMenu .closeMenu , .icons i {
-    font-size: 2rem;
-    display: none;
-    cursor: pointer;
-  }
+
  /* Style the video container */
  #video-container {
     display: flex;
@@ -233,13 +231,13 @@ header nav .left a {
 }
 /* Video Container inside the modal */
 #video-container {
-    position: relative;
+    /* position: relative; */
     width: 90%;
-    height: 99%;
+    height: 90%;
     max-width: 800px;
     background: var(--background);
     border-radius: 8px;
-    overflow: hidden;
+    /* overflow: hidden; */
 }
 /* Style the video */
 /* Button Style */
@@ -796,9 +794,13 @@ footer h2 {
     nav{
         white-space: .1rem;
     }
-    nav ul, li, a {
-        font-size: 90%;
-        
+    nav ul, li {
+        font-size: 90%; 
+        border-top: .1rem solid var(--background);       
+    }
+    nav a{
+        color: var(--color);
+        font-size: 90%; 
     }
     h2, h3{
         font-size: 1rem;
@@ -816,19 +818,23 @@ footer h2 {
         font-size: 100%;
     }
     nav .mainMenu{
-        height: 18vh;
+        height: 100vh;
         position: fixed;
         top: 0;
         right: 0;
         left: 0;
-        z-index: 5000;
+        z-index: 10;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        background: var(--bgDark);
+        background: var(--primary);
         transition: top 1s ease;
         display: none;
-        font-size: .9rem;
+        color:var(--color);
+        /* font-size: .9rem; */
+     }
+     nav .mainMenu a{
+        color: var(--color);
      }
      nav .mainMenu .closeMenu {
         display: block;
@@ -839,13 +845,10 @@ footer h2 {
      nav .openMenu{
         display: block;
      }
-     nav .mainMenu li a:hover{
-        background: none;
-        color: var(--white);
-        font-size: 1.1rem;
-     }
+     
      .icons i {
         display: inline-block;
+        padding: 12px;
      }
      header nav .self {
         display: inline-block;

@@ -5,19 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HIGH-TECH STEEL WORKS LTD</title> 
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="./fontawesome-free-5.13.0-web/css/all.css">
 </head>
 <body>
     <header>
-        <img src="./gallery/Logo.jpg" alt="logo" class="logo"><p id="backToTopBtn" title="Back to top"></p>
+        <img src="./gallery/Logo.jpg" alt="logo" class="logo">
+        <p id="backToTopBtn" title="Back to top"></p>
         <nav><h1>High-Tech Steel Works Ltd </h1></nav>
         <nav>
             <div class="openMenu"><i class="bars">&#9776;</i></div>
-            <div class="mainMenu">
-            <ul>
+            <ul class="mainMenu">
                 <li>
-                    <!-- <a href="#" id="home-button" class="menu-item"></a> -->
-                    <button id="home-button" class="home-button">Home</button>
-                    <label for="section-dropdown" style="display: none" >Select Section</label>
+                    <a href="#" id="home-button" class="home-button">Home</a>
+                    <!-- <button id="home-button" class="home-button">Home</button> -->
+                    <label for="section-dropdown"></label>
                     <select id="section-dropdown" name="section-dropdown" >
                         <option value="about-us">Go to</option>
                         <option value="about-us">About Us</option>
@@ -25,16 +26,26 @@
                         <option value="vision">Vision</option>
                         <option value="core-values">Core Values</option>
                         <!-- <option value="video-container">Video</option> -->
-                    </select>
-                    <a href="./products.html" class="nav">Products</a>
-                    <a href="./equipment.html" class="nav">Equipment</a>
-                    <a href="./cart_page.html" class="nav">Cart</a>
-                    <a href="#contacts" class="nav">Contact Us</a>
-                    <a href="./profile.html" class="nav">Profile</a>
-                    <!-- <p id="watch-video-btn"></p>   -->
-                </li>
-            </ul>
-            </div>
+                    </select></li>
+                <!-- <li><a href="./index.html">Home</a></li> -->
+                <li><a href="./products.html">Products</a></li>
+                <li><a href="./equipment.html">Equipment</a>                 
+                <li><a href="./cart_page.html">Cart</a></li>
+                <li><a href="#contacts">Contact Us</a></li>
+                <li><a href="./profile.html">Profile</a></li>
+                <div class="closeMenu">&times;</div>
+                <!-- <div class="menu-icon" ><i class="&#9776;"></i></div> -->
+                <span class="icons">
+                    <a href="https://www.facebook.com" target="_blank" title="socials"><i class="bx bxl-facebook" height="1rem" width="1rem" ></i></a>
+                    <a href="https://www.facebook.com" target="_blank" title="socials"><i class="bx bxl-x" height="1rem" width="1rem" ></i></a>
+                    <a href="https://www.facebook.com" target="_blank" title="socials"><i class="bx bxl-tiktok" height="1rem" width="1rem" ></i></a>
+                    <a href="https://www.facebook.com" target="_blank" title="socials"><i class="bx bxl-telegram" height="1rem" width="1rem" ></i></a>
+                    <i class="fab fa-facebook"></i>
+                    <i class="fab fa-tiktok"></i>
+                    <i class="fab fa-twitter"></i>
+                    <i class="fab fa-telegram"></i>
+                </span>         
+            </ul>       
         </nav>
     </header>
     <hr>
@@ -127,6 +138,58 @@
     </main>
     <script src="scripts.js"></script>
     <script>
+       
+        // Show dropdown menu on Home button click
+        // Drpdown Selection Event Listener
+        // Dropdown change event listener
+        // Toggle dropdown visibility when Home button is clicked
+        document.getElementById("home-button").addEventListener("click", function() {
+            const dropdown = document.getElementById("section-dropdown");
+            dropdown.style.display = dropdown.style.display === "none" ? "block" : "none";
+        });
+
+        // Show selected section and hide others
+        document.getElementById("section-dropdown").addEventListener("change", function() {
+            const selectedSection = this.value;
+
+            // Hide all sections initially
+            document.querySelectorAll('.section').forEach(section => section.style.display = 'none');
+
+            // Display the selected section if it’s chosen
+            if (selectedSection) {
+                document.getElementById(selectedSection).style.display = "block";
+            }
+        });
+        document.getElementById("section-dropdown").addEventListener("change", function() {
+            const selectedSection = this.value;
+            
+            // Get references to each section
+            const aboutUs = document.getElementById("about-us");
+            const mission = document.getElementById("mission");
+            const vision = document.getElementById("vision");
+            const coreValues = document.getElementById("core-values");
+            const videoContent = document.getElementById("video-container");
+
+            // Hide all sections initially
+            aboutUs.style.display = "none";
+            mission.style.display = "none";
+            vision.style.display = "none";
+            coreValues.style.display = "none";
+            videoContent.style.display = "none";
+
+            // Show the selected section
+            if (selectedSection === "about-us") {
+                aboutUs.style.display = "block";
+            } else if (selectedSection === "mission") {
+                mission.style.display = "block";
+            } else if (selectedSection === "vision") {
+                vision.style.display = "block";
+            } else if (selectedSection === "core-values") {
+                coreValues.style.display = "block";
+            } else if (selectedSection === "video-container") {
+            videoContent.style.display = "block";
+        }
+        });
         // video for local storage
         // Select elements
         const watchVideoBtn = document.getElementById('watch-video-btn');
@@ -208,21 +271,7 @@
 
         // Load videos on page load
         loadVideos();
-        // nav menu
-        const mainMenu = document.querySelector('.mainMenu');
-            const closeMenu = document.querySelector('.closeMenu');
-            const openMenu = document.querySelector('.openMenu');
-
-            openMenu.addEventListener('click',show);
-            closeMenu.addEventListener('click',close);
-
-            function show(){
-                mainMenu.style.display = 'flex';
-                mainMenu.style.top = '0';
-            }
-            function close(){
-                mainMenu.style.top = '-100%';
-            }
+        
     </script>
 </body>
 <footer>
