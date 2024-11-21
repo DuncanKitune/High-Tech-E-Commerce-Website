@@ -13,39 +13,39 @@ function show(){
 function close(){
     mainMenu.style.top = '-100%';
 }
-// Cart array and total price initialization
-let cart = JSON.parse(localStorage.getItem('cart')) || [];
-let totalPrice = 0;
+// // Cart array and total price initialization
+// let cart = JSON.parse(localStorage.getItem('cart')) || [];
+// let totalPrice = 0;
 
 
 
-// Add to cart function
-function addToCart(productId) {
-  // Check if product is already in the cart
-  const productIndex = cart.findIndex(item => item.id === productId);
+// // Add to cart function
+// function addToCart(productId) {
+//   // Check if product is already in the cart
+//   const productIndex = cart.findIndex(item => item.id === productId);
   
-  if (productIndex !== -1) {
-      cart[productIndex].quantity += 1; // Increase quantity if already in cart
-  } else {
-      // Find the product details from the products array
-      const product = products.find(item => item.id === productId);
+//   if (productIndex !== -1) {
+//       cart[productIndex].quantity += 1; // Increase quantity if already in cart
+//   } else {
+//       // Find the product details from the products array
+//       const product = products.find(item => item.id === productId);
       
-      if (product) {  // Ensure the product exists
-          const cartItem = { 
-              id: product.id, 
-              name: product.name, 
-              price: product.price, 
-              quantity: 1 
-          };
-          cart.push(cartItem); // Add new product to the cart
-      } else {
-          console.error("Product not found");
-      }
-  }
+//       if (product) {  // Ensure the product exists
+//           const cartItem = { 
+//               id: product.id, 
+//               name: product.name, 
+//               price: product.price, 
+//               quantity: 1 
+//           };
+//           cart.push(cartItem); // Add new product to the cart
+//       } else {
+//           console.error("Product not found");
+//       }
+//   }
   
-  localStorage.setItem('cart', JSON.stringify(cart));
-  alert("Product added to cart!");
-}
+//   localStorage.setItem('cart', JSON.stringify(cart));
+//   alert("Product added to cart!");
+// }
 
 // Display cart items
 function displayCart() {
