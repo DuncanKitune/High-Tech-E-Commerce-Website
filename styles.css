@@ -1,3 +1,4 @@
+
 :root{
     --primary: #af8947;
     --secondary: #dac989;
@@ -19,146 +20,107 @@ body {
     margin: 0;
     padding: 0;
     background-color: var(--background);
-}
-.container{
-    border: .1rem solid var(--conservative);
-    margin: .5rem;
-    padding: .5rem;
-    box-shadow: .1rem .1rem .1rem var(--colour);
-}
-
-header {
+  }
+  
+  .container {
+    border: 0.1rem solid var(--conservative);
+    margin: 0.5rem;
+    padding: 0.5rem;
+    box-shadow: 0.1rem 0.1rem 0.1rem var(--colour);
+  }
+  
+  header {
     background-color: var(--primary);
     color: var(--conservative);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     flex-wrap: wrap;
     overflow: hidden;
-    margin: .2rem;
-    padding: .2rem;
-}
-h1{
+    margin: 0.2rem;
+    padding: 0.2rem;
+  }
+  
+  h1 {
     color: var(--color);
     font-size: 3.5rem;
     font-weight: bold;
     text-align: center;
-    padding: 0rem;
-    margin: 0rem;
-}
-h1 span{
+    margin: 0;
+  }
+  
+  h1 span {
     font-size: 2.5rem;
     font-style: italic;
-    align-items: center;
     color: var(--conservative);
-}
-.logo {
+  }
+  
+  .logo {
     height: 3rem;
-    /* width: 3rem; */
-    padding-left: 45%;
     transition: transform 0.3s ease-in-out;
-}
-.logo:hover{
+  }
+  
+  .logo:hover {
     z-index: 2;
-    transform: scale(2); /* Adjust zoom level */
-    margin-left: calc(50vw - (max-content + 20px)); /* Center based on viewport width */
-    justify-items: center;
-    padding: .1rem;
-    transform: rotate(15deg);
-}
-.home-button{
-    border-top: .1rem solid var(--white);
+    transform: scale(1.5) rotate(15deg);
+  }
+  
+  .home-button {
+    border-top: 0.1rem solid var(--white);
     background-color: var(--primary);
     color: var(--white);
     display: flex;
     justify-content: space-between;
-    size: auto;
     font-size: 1rem;
     white-space: nowrap;
-    box-shadow: 0.2rem 0.1rem 0.1rem -0.5rem var(--text);
-}
-.home-button:hover{
-    /* background-color: var(--background); */
-    box-shadow: 0.1rem 0.25rem 0.25rem 0.1rem var(--text);
-    transform: rotate(.1deg);
+    box-shadow: 0.2rem 0.1rem 0.1rem -0.5rem var(--color);
+  }
+  
+  .home-button:hover {
+    box-shadow: 0.1rem 0.25rem 0.25rem 0.1rem var(--color);
     cursor: pointer;
-    /* font-style: italic; */
-    text-transform: inherit;
     text-decoration: underline solid var(--secondary);
-    /* color: var(--color); */
     border-radius: 10%;
-}
- nav ul, li{
+  }
+  
+  nav ul {
     list-style: none;
-    /* padding: 0; */
-    margin: 2rem;
     display: flex;
     gap: 20px;
     align-items: center;
-    padding: auto;
-    margin: auto;
-    text-align: center;
-    
+    margin: 2rem 0;
+    padding: 0;
     background-color: var(--primary);
-    display: flex;
-    justify-content: space-between;
-    size: auto;
-    font-size: 1rem;
-    white-space: nowrap;
     box-shadow: 0.2rem 0.1rem 0.1rem -0.5rem var(--text);
-}
-
-nav a {
-    color:var(--conservative);
+  }
+  
+  nav a {
+    color: var(--conservative);
     text-decoration: none;
-    margin: 5px 10px;
-    padding: .2rem;
-   
-}
-nav a:hover {
-    /* background-color: var(--background); */
+    margin: 0 10px;
+    padding: 0.2rem;
+  }
+  
+  nav a:hover {
     box-shadow: 0.1rem 0.25rem 0.25rem 0.1rem var(--text);
-    transform: rotate(.1deg);
     cursor: pointer;
-    /* font-style: italic; */
-    text-transform: inherit;
-    /* text-decoration: underline solid var(--color); */
     color: var(--color);
     border-radius: 10%;
-}  
-
-.menu-item {
-    position: relative;
-}
-
-/* side bar  */
-.menu-icon {
+    background-color: var(--primary);
+  }
+  
+  .menu-icon {
     display: none;
     font-size: 2rem;
     cursor: pointer;
   }
   
-
-  nav .mainMenu{
-    display: flex;
-    list-style: none;
-  }
-  nav .mainMenu li a {
-    display: inline-block;
-    padding: .5rem;
-    text-decoration: none;
-    /* text-transform: uppercase; */
-    color: var(--conservative);
-    font-size: 1.1rem;
-    margin: .5rem;
-  }
-  nav .mainMenu li a:hover{
-    background-color: var(--background);
-    box-shadow: 0.1rem 0.25rem 0.25rem 0.1rem var(--text);
-    transform: rotate(.1deg);
+  nav .openMenu {
+    font-size: 2rem;
+    margin: 0.5rem;
+    display: none;
     cursor: pointer;
-    font-style: italic;
-    text-transform: inherit;
-    text-decoration: underline solid var(--color);
     color: var(--color);
-    border-radius: 10%;
   }
   nav .openMenu {
     font-size: 2rem;
@@ -167,19 +129,68 @@ nav a:hover {
     cursor: pointer;
     color: var(--color);
   }
-  nav .closeMenu{
-    color: var(--color);
-  }
   nav .mainMenu .closeMenu , .icons i {
     font-size: 2rem;
     display: none;
     cursor: pointer;
   }
-  .fa-facebook:hover(var(--color))
-  .fa-tiktok:hover(var(--color))
-  .fa-x:hover(var(--color))
-  .fa-telegram:hover(var(--color))
+  .icons hr{
+    display: hidden;
+  }
+  .hidden {
+    display: none;
+  }
+  
+  @media screen and (max-width: 768px) {
+    .hidden {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+  
+    .hidden ul {
+      display: flex;
+      align-items: center;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+  
+    .hidden li {
+      margin: 0 0.5rem;
+    }
+  
+    .openMenu {
+      display: block;
+    }
+  
+    .mainMenu {
+      display: none;
+    }
+  }
+  
+  @media screen and (min-width: 769px) {
+    .hidden {
+      display: none;
+    }
+  
+    .mainMenu {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+    }
+  }
+  
+  .bxl-facebook:hover,
+  .fa-tiktok:hover,
+  .fa-x:hover,
+  .fa-telegram:hover {
+    color: var(--color);
+  }
+  
 
+  
   /* Dropdown styling */
 .section-dropdown {
     display: none;
@@ -334,7 +345,7 @@ iframe {
     padding-left: 1rem;
 }
 h3{
-    font-size: 2rem;
+    font-size: 1rem;
     color: var(--primary);
     padding: auto;
 }
@@ -385,9 +396,9 @@ h2, h3 :hover{
 /* products */
 /* Section Styling */
  #product-listing {
-    max-width: 1200px;
+    max-width: 1500px;
     width: 90%;
-    padding: 20px;
+    padding: 10px;
     margin: auto;
     background-color: var(--color);
     border-radius: 8px;
@@ -405,89 +416,70 @@ h2, h3 :hover{
     padding-bottom: 10px;
 } 
 
-
-
 /* Product Grid */
 #products {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 4fr));
-    gap: 20px;
-    margin-top: 20px;
+    gap: 1rem;
+    margin-top: 1rem;
     justify-content: space-between;
     flex-wrap: wrap;
     overflow: hidden;
     max-height: 45rem;
-    gap: 20px;
     padding: 20px;
     overflow-y: scroll;
-    grid-template-columns: repeat (4, 1fr);
-}
- #products {
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    gap: 20px;
-    padding: 20px;
     
-} */
+}
 
 /* Individual Product Card */
-#products .product-card {
+#products .images{
     background-color: var(--color);
     border: 1px solid var(--colour);
     border-radius: 8px;
     padding: 1rem;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px var(--colour);
     transition: transform 0.3s;
 }
 
-#products .product-card:hover {
-    transform: scale(1.02);
+.product .images:hover {
+    transform: scale(1.5);
+    cursor: pointer;
 }
-
-/* products  */
-
- /* .products-{ */
-    /* overflow: hidden;
-    overflow-x: scroll;
-    margin-left: 5rem;
-    overflow: hidden;
-    overflow-x: scroll; */
-/* }  */
 .product {
     border: 1px solid var(--conservative);
     padding: .5rem;
-    width: 300px;
+    width: 250px;
+    font-size: .6rem;
     text-align: center;
     overflow: hidden;
     overflow-y: scroll;
     justify-content: space-between;
     position: relative;
-    max-height: 45rem;
+    max-height: 26rem;
 }
 .images{
     position: relative;
     justify-content: space-between;
     overflow: hidden;
-    overflow-x: scroll;
-
+    /* overflow-y: scroll; */
+    height: 15rem;
+    width: 12rem;
+    margin: auto;
 }
 .product img {
-    /* max-width: 100%; */
-    height: 25rem;
+    max-width: 100%; 
+    height: 28rem;
     width: 100%;
     max-height: 100%;
     justify-content: space-between;
     position: relative;
     overflow: hidden;
     overflow-x: scroll;
-    margin: 1rem;
-    border: .1rem solid var(--primary);
+    margin: .3rem;
+    border: .1rem solid var(--primary); 
+    transition: transform 0.3s;
 }
-/* #pagination {
-    text-align: center;
-    margin: 20px 0;
-} */
+
 /* * Pagination */ */
 #pagination {
     display: flex;
@@ -522,6 +514,7 @@ h2, h3 :hover{
     color: var(--conservative);
     margin: 0 10px;
 }
+/* PROCEED TO CART BTN  */
 .pagination{
     display: flex;
     justify-content: center;
@@ -529,10 +522,6 @@ h2, h3 :hover{
     margin-top: 20px;
     margin: 20px 0;
     padding: 10px 20px;
-    /* margin: 5px; */
-    /* padding: 10px 15px; */
-
-    /* margin: 0 5px; */
     font-size: 1rem;
     color: var(--text);
     background-color: var(--primary);
@@ -895,19 +884,38 @@ footer h2 {
         }
     #filters select, #filters input {
             width: 70%;
+            margin-left: 10%;
         }
     
     #products {
-            grid-template-columns: repeat (2, 1fr);
-            height: 50%;
-            max-width: 100%            
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 4fr));
+            gap: 1rem;
+            margin-top: 1rem;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            overflow: hidden;
+            max-height: 45rem;
+            padding: 20px;
+            overflow-y: scroll;
+                    
         }
-    .product, .product-card {
+    .product{
+            width: 20rem;
+            font-size: .6rem;
+            text-align: center;
+            overflow: hidden;
+            overflow-y: scroll;
+            max-height: 30rem;
+    }
+    .product-card {
             /* max-height: 40%; */
             max-width: 100%;
         }
     .product img {
-            max-height: fit-content;
+        height: 100%;
+        width: 100%;
+            /* max-height: fit-content; */
         }
     
     .profile-page {

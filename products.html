@@ -5,8 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HIGH-TECH STEEL WORKS LTD</title>
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="./fontawesome-free-5.13.0-web/css/all.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css" rel="stylesheet">
+    
 </head>
 <body>
     <header>
@@ -14,27 +15,38 @@
         <h1>High-Tech Steel Works Ltd</h1>
         <nav>
             <div class="openMenu"><i class="bars">&#9776;</i></div>
-            <ul class="mainMenu">
+              <ul class="mainMenu">
                 <li><a href="./index.html">Home</a></li>
                 <li><a href="./products.html">Products</a></li>
-                <li><a href="./equipment.html">Equipment</a>                 
-                <li><a href="./cart_page.html">Cart</a></li>
+                <li><a href="./equipment.html">Equipment</a> </li>
                 <li><a href="#contacts">Our Contacts</a></li>
-                <li><a href="./profile.html">Profile</a></li>
+                <li><a href="" class=""><i class="fas fa-search" id="search-btn"></i></a>
+                <li><a href="./cart_page.html"><i class="fas fa-shopping-cart" height="1rem" width="1rem" ></i></a></li>
+                <li><a href="./profile.html"><i class="fas fa-user" height="2rem" width="2rem" ></i></a></li>
                 <div class="closeMenu">&times;</div>
                 <!-- <div class="menu-icon" ><i class="&#9776;"></i></div> -->
-                <span class="icons">
-                    <a href="https://www.facebook.com" target="_blank" title="socials"><i class="bx bxl-facebook" height="1rem" width="1rem" ></i></a>
-                    <a href="https://www.facebook.com" target="_blank" title="socials"><i class="bx bxl-x" height="1rem" width="1rem" ></i></a>
-                    <a href="https://www.facebook.com" target="_blank" title="socials"><i class="bx bxl-tiktok" height="1rem" width="1rem" ></i></a>
-                    <a href="https://www.facebook.com" target="_blank" title="socials"><i class="bx bxl-telegram" height="1rem" width="1rem" ></i></a>
-                    <i class="fab fa-facebook"></i>
-                    <i class="fab fa-tiktok"></i>
-                    <i class="fab fa-twitter"></i>
-                    <i class="fab fa-telegram"></i>
-                </span>       
-            </ul>  
                 
+                <span class="icons">
+                   <hr>
+                    <a href="https://www.facebook.com" target="_blank" title="socials"><i class="bx bxl-facebook" height="1rem" width="1rem" ></i></a>
+
+                    <a href="https://www.facebook.com" target="_blank" title="socials"><i class="fab fa-tiktok" height="1rem" width="1rem"></i></a>
+
+                    <a href="https://www.facebook.com" target="_blank" title="socials"><i class="fab fa-twitter" height="1rem" width="1rem"></i></a>
+
+                    <a href="https://www.facebook.com" target="_blank" title="socials"><i class="bx bxl-telegram" height="1rem" width="1rem" ></i></a>
+                </span>       
+            </ul> 
+            <div class="hidden">
+                <ul>
+                <li><a href="./index.html">Home</a></li>
+                <li><a href="./products.html">Products</a></li>
+                <li><a href="#contacts">Contacts</a></li>
+                <li><a href="./cart_page.html"><i class="fas fa-shopping-cart" height="1rem" width="1rem" ></i></a></li>
+                <li><a href="./profile.html"><i class="fas fa-user" height="2rem" width="2rem" ></i></a></li>
+                <!-- <div class="closeMenu">&times;</div> -->
+                </ul>
+            </div> 
         </nav>
     </header>
     <hr>
@@ -45,24 +57,32 @@
 
             <!-- Filters and Search -->
             <div id="filters">
-                <label for="category-filter">Filter by Category:</label>
+                <label for="category-filter">Filter Products:</label>
                 <select id="category-filter" onchange="filterProducts()">
-                    <option value="all">All Products</option>
-                    <option value="windows">Windows</option>
-                    <option value="doors">Doors</option>
-                    <option value="gates">Gates</option>
+                    <option value="all">Filter by Name</option>
+                    <option value="pivot_steel_door_Plain">Pivot Steel Doors (Plain)</option>
+                    <option value="pivot_steel_door_with_mahogany_claddin_on_top">Pivot Steel Door + Mahogany Cladding</option>
+                    <option value="single_leaf_steel_door">Single Leaf Steel Door (Plain)</option>
+                    <option value="single_leaf_steel_door_with_mahogany_cladding_on_top">Single Leaf Steel Door + Mahogany Cladding</option>
+                    <option value="double_leaf_steel_door">Double Leaf Steel Door (Plain)</option>
+                    <option value="sliding_gates">Sliding Gates</option>
+                    <option value="normal_gates">Normal Gates</option>
                     <option value="grills">Grills</option>
-                    <option value="security_doors">Security Doors</option>
+                    <option value="windows">Windows</option>
+
                 </select>
 
-                <label for="price-sort">Sort by Price:</label>
+                <label for="price-sort">Sort Products:</label>
                 <select id="price-sort" onchange="sortProducts()">
-                    <option value="default">Default</option>
+                    <option value="default">Sort by Price</option>
                     <option value="low-high">Low to High</option>
                     <option value="high-low">High to Low</option>
                 </select>
-
+                
+                <form action="" class="search-form">
                 <input type="text" id="search-box" placeholder="Search Products..." oninput="filterAndSortProducts()">
+                <label for="search-box" class="fas fa-search"></label>
+                </form>
             </div>
 
             <!-- Product Grid -->
@@ -93,70 +113,218 @@
         {
             id: 1,
             name: "Pivot Steel Door (Plain)",
-            category: "doors",
+            category: "pivot_steel_door_Plain",
             variants: [
-                { variantId: 103, size: "Height: 2400cm. Width: 1800cm", color: "Black", price: 68000.00, time:"Production time: 7 Days", images: ["gallery/Pivot steel door design  4.jpg", "gallery/Pivot steel door design  3.jpg", "gallery/Pivot steel door design  2.jpg", "gallery/Pivot steel door design 1.jpg"] },
-                { variantId: 101, size: "Height: 2400cm. Width: 1500cm", color: "White", price: 60000.00, time:"Production time: 7 Days", images: ["gallery/Pivot steel door design 13.jpg", "gallery/Pivot steel door design 12.jpg","gallery/Pivot steel door design 11.jpg", "gallery/Pivot steel door design 10.jpg", "gallery/Pivot steel door design 9.jpg"] },
-                { variantId: 102, size: "Height: 2400cm. Width: 1200cm", color: "White", price: 50000.00, time:"Production time: 7 Days", images: [ "gallery/Pivot steel door design 7.jpg", "gallery/Pivot steel door design 6.jpg", "gallery/Pivot steel door design 5.jpg", "gallery/Pivot steel door design  14.jpg", "gallery/Pivot steel door design 8.jpg",] }                
+                { variantId: 101, size1: "Height: 2400cm. Width: 1800cm: Price KES 68,000", size2: "Height: 2400cm. Width: 1500cm: Price KES 60,000", size3: "Height: 2400cm. Width: 1200cm: Price KES 50,000", color: "Any of your choice", price: 68000, time:"Production time: 7 Days", images: ["gallery/Pivot steel door design  4.jpg"] },
+
+                { variantId: 102, size1: "Height: 2400cm. Width: 1800cm: Price KES 68,000", size2: "Height: 2400cm. Width: 1500cm: Price KES 60,000", size3: "Height: 2400cm. Width: 1200cm: Price KES 50,000", color: "Any of your choice", price: 68000, time:"Production time: 7 Days", images: ["gallery/Pivot steel door design  3.jpg"] },
+
+                { variantId: 103, size1: "Height: 2400cm. Width: 1800cm: Price KES 68,000", size2: "Height: 2400cm. Width: 1500cm: Price KES 60,000", size3: "Height: 2400cm. Width: 1200cm: Price KES 50,000", color: "Any of your choice", price: 68000, time:"Production time: 7 Days", images: ["gallery/Pivot steel door design  2.jpg"] },
+
+                { variantId: 104, size1: "Height: 2400cm. Width: 1800cm: Price KES 68,000", size2: "Height: 2400cm. Width: 1500cm: Price KES 60,000", size3: "Height: 2400cm. Width: 1200cm: Price KES 50,000", color: "Any of your choice", price: 68000, time:"Production time: 7 Days", images: ["gallery/Pivot steel door design 1.jpg"] },
+
+                { variantId: 105, size1: "Height: 2400cm. Width: 1800cm: Price KES 68,000", size2: "Height: 2400cm. Width: 1500cm: Price KES 60,000", size3: "Height: 2400cm. Width: 1200cm: Price KES 50,000", color: "Any of your choice", price: 68000, time:"Production time: 7 Days", images: ["gallery/Pivot steel door design 13.jpg"] },
+
+                { variantId: 106, size1: "Height: 2400cm. Width: 1800cm: Price KES 68,000", size2: "Height: 2400cm. Width: 1500cm: Price KES 60,000", size3: "Height: 2400cm. Width: 1200cm: Price KES 50,000", color: "Any of your choice", price: 68000, time:"Production time: 7 Days", images: ["gallery/Pivot steel door design 12.jpg"] },
+
+                { variantId: 107, size1: "Height: 2400cm. Width: 1800cm: Price KES 68,000", size2: "Height: 2400cm. Width: 1500cm: Price KES 60,000", size3: "Height: 2400cm. Width: 1200cm: Price KES 50,000", color: "Any of your choice", price: 68000, time:"Production time: 7 Days", images: ["gallery/Pivot steel door design 11.jpg"] },
+
+                { variantId: 108, size1: "Height: 2400cm. Width: 1800cm: Price KES 68,000", size2: "Height: 2400cm. Width: 1500cm: Price KES 60,000", size3: "Height: 2400cm. Width: 1200cm: Price KES 50,000", color: "Any of your choice", price: 68000, time:"Production time: 7 Days", images: [ "gallery/Pivot steel door design 10.jpg"] },
+
+                { variantId: 109, size1: "Height: 2400cm. Width: 1800cm: Price KES 68,000", size2: "Height: 2400cm. Width: 1500cm: Price KES 60,000", size3: "Height: 2400cm. Width: 1200cm: Price KES 50,000", color: "Any of your choice", price: 68000, time:"Production time: 7 Days", images: [ "gallery/Pivot steel door design 9.jpg"] },
+
+                { variantId: 110, size1: "Height: 2400cm. Width: 1800cm: Price KES 68,000", size2: "Height: 2400cm. Width: 1500cm: Price KES 60,000", size3: "Height: 2400cm. Width: 1200cm: Price KES 50,000", color: "Any of your choice", price: 68000, time:"Production time: 7 Days", images: [ "gallery/Pivot steel door design 7.jpg"] },
+                
+                { variantId: 111, size1: "Height: 2400cm. Width: 1800cm: Price KES 68,000", size2: "Height: 2400cm. Width: 1500cm: Price KES 60,000", size3: "Height: 2400cm. Width: 1200cm: Price KES 50,000", color: "Any of your choice", price: 68000, time:"Production time: 7 Days", images: ["gallery/Pivot steel door design 6.jpg"] },
+
+                { variantId: 112, size1: "Height: 2400cm. Width: 1800cm: Price KES 68,000", size2: "Height: 2400cm. Width: 1500cm: Price KES 60,000", size3: "Height: 2400cm. Width: 1200cm: Price KES 50,000", color: "Any of your choice", price: 68000, time:"Production time: 7 Days", images: [ "gallery/Pivot steel door design 5.jpg"] },
+                
+                { variantId: 113, size1: "Height: 2400cm. Width: 1800cm: Price KES 68,000", size2: "Height: 2400cm. Width: 1500cm: Price KES 60,000", size3: "Height: 2400cm. Width: 1200cm: Price KES 50,000", color: "Any of your choice", price: 68000, time:"Production time: 7 Days", images: [ "gallery/Pivot steel door design  14.jpg"] },
+
+                { variantId: 114, size1: "Height: 2400cm. Width: 1800cm: Price KES 68,000", size2: "Height: 2400cm. Width: 1500cm: Price KES 60,000", size3: "Height: 2400cm. Width: 1200cm: Price KES 50,000", color: "Any of your choice", price: 68000, time:"Production time: 7 Days", images: ["gallery/Pivot steel door design 8.jpg",] }          
             ]
         },
         {
             id: 2,
             name: "Pivot Steel Door (With Mahogany Cladding on Top)",
-            category: "security_doors",
+            category: "pivot_steel_door_with_mahogany_claddin_on_top",
             variants: [
-                { variantId: 201, size: "Height: 2400cm. Width: 1200cm", color: "Mahogany", price: 75000, time:"Production time: 10 Days", images: ["gallery/Pivot steel doors with mahogany wood cladding on top 1.jpg", "gallery/Pivot steel doors with mahogany wood cladding on top 2.jpg", "gallery/Pivot steel doors with mahogany wood cladding on top 3.jpg"] },
-                { variantId: 202, size: "Height: 2400cm. Width: 1500cm", color: "Black", price: 80000.00, time:"Production time: 10 Days", images: ["gallery/Pivot steel doors with mahogany wood cladding on top 4.jpg", "gallery/Pivot steel doors with mahogany wood cladding on top 8.jpg"] },
-                { variantId: 203, size: "Height: 2400cm. Width: 1800cm", color: "Black", price: 90000.00, time:"Production time: 10 Days", images: ["gallery/Pivot steel doors with mahogany wood cladding on top 9.jpg", "gallery/Pivot steel doors with mahogany wood cladding on top.jpg"] }
+                { variantId: 201, size1: "Height: 2400cm. Width: 1800cm: Price KES 75,000", size2: "Height: 2400cm. Width: 1500cm: Price KES 80,000", size3: "Height: 2400cm. Width: 1200cm: Price KES 90,000", color: "Any of your choice", price: 90000, time:"Production time: 10 Days", time:"Production time: 10 Days", images: ["gallery/Pivot steel doors with mahogany wood cladding on top 1.jpg"] },
+
+                { variantId: 202, size1: "Height: 2400cm. Width: 1800cm: Price KES 75,000", size2: "Height: 2400cm. Width: 1500cm: Price KES 80,000", size3: "Height: 2400cm. Width: 1200cm: Price KES 90,000", color: "Any of your choice", price: 90000, time:"Production time: 10 Days", time:"Production time: 10 Days", images: [ "gallery/Pivot steel doors with mahogany wood cladding on top 2.jpg"] },
+
+                { variantId: 203, size1: "Height: 2400cm. Width: 1800cm: Price KES 75,000", size2: "Height: 2400cm. Width: 1500cm: Price KES 80,000", size3: "Height: 2400cm. Width: 1200cm: Price KES 90,000", color: "Any of your choice", price: 90000, time:"Production time: 10 Days", images: [ "gallery/Pivot steel doors with mahogany wood cladding on top 3.jpg"] },
+
+                { variantId: 204, size1: "Height: 2400cm. Width: 1800cm: Price KES 75,000", size2: "Height: 2400cm. Width: 1500cm: Price KES 80,000", size3: "Height: 2400cm. Width: 1200cm: Price KES 90,000", color: "Any of your choice", price: 90000,time:"Production time: 10 Days", images: ["gallery/Pivot steel doors with mahogany wood cladding on top 4.jpg"] },
+
+                { variantId: 205, size1: "Height: 2400cm. Width: 1800cm: Price KES 75,000", size2: "Height: 2400cm. Width: 1500cm: Price KES 80,000", size3: "Height: 2400cm. Width: 1200cm: Price KES 90,000", color: "Any of your choice", price: 90000,time:"Production time: 10 Days", images: [ "gallery/Pivot steel doors with mahogany wood cladding on top 8.jpg"] },
+
+                { variantId: 206, size1: "Height: 2400cm. Width: 1800cm: Price KES 75,000", size2: "Height: 2400cm. Width: 1500cm: Price KES 80,000", size3: "Height: 2400cm. Width: 1200cm: Price KES 90,000", color: "Any of your choice", price: 90000,time:"Production time: 10 Days", images: ["gallery/Pivot steel doors with mahogany wood cladding on top 4.jpg", "gallery/Pivot steel doors with mahogany wood cladding on top 8.jpg"] },
+
+                { variantId: 207, size1: "Height: 2400cm. Width: 1800cm: Price KES 75,000", size2: "Height: 2400cm. Width: 1500cm: Price KES 80,000", size3: "Height: 2400cm. Width: 1200cm: Price KES 90,000", color: "Any of your choice", price: 90000,time:"Production time: 10 Days", images: ["gallery/Pivot steel doors with mahogany wood cladding on top 9.jpg"] },
+
+                { variantId: 208, size1: "Height: 2400cm. Width: 1800cm: Price KES 75,000", size2: "Height: 2400cm. Width: 1500cm: Price KES 80,000", size3: "Height: 2400cm. Width: 1200cm: Price KES 90,000", color: "Any of your choice", price: 90000,time:"Production time: 10 Days", images: ["gallery/Pivot steel doors with mahogany wood cladding on top.jpg"] }
             ]
         },
         {
             id: 3,
-            name: "Single Leaf Steel Door",
-            category: "doors",
+            name: "Single Leaf Steel Door (Plain)",
+            category: "single_leaf_steel_door",
             variants: [
-                { variantId: 301, size: "Height: 2600cm. Width: 900cm", color: "Mahogany", price: 36000, time:"Production time: 7 Days", images: ["gallery/Single leaf  steel door.jpg", "gallery/Single leaf  steel door 1.jpg",  "gallery/Single leaf  steel door 3.jpg", "gallery/Single leaf  steel door 4.jpg", "gallery/Single leaf  steel door 5.jpg"] },
-                { variantId: 302, size: "Height: 2400cm. Width: 900cm", color: "Black", price: 33000.00, time:"Production time: 7 Days", images: ["gallery/Single leaf  steel door 14.jpg",  "gallery/Single leaf  steel door 8.jpg", "gallery/Single leaf  steel door 9.jpg", "gallery/Single leaf  steel door 10.jpg", "gallery/Single leaf  steel door 11.jpg", "gallery/Single leaf  steel door 12.jpg"] },
-                { variantId: 303, size: "Height: 2200cm. Width: 900cm", color: "Black", price: 30000.00, time:"Production time: 7 Days", images: ["gallery/Single leaf  steel door 15.jpg","gallery/Single leaf  steel door 6.jpg", "gallery/Single leaf  steel door 18.jpg", "gallery/Single leaf  steel door 17.jpg" ,  "gallery/Single leaf  steel door 16.jpg"] }
+                { variantId: 301, size1: "Height: 2600cm. Width: 900cm: Price KES 36,000", size2: "Height: 2400cm. Width: 900cm: Price KES 33,000", size3: "Height: 2200cm. Width: 900cm: Price KES 30,000", color: "Any of your choice", time:"Production time: 7 Days", price: 36000, images: ["gallery/Single leaf  steel door.jpg"] },
+
+                { variantId: 302, size1: "Height: 2600cm. Width: 900cm: Price KES 36,000", size2: "Height: 2400cm. Width: 900cm: Price KES 33,000", size3: "Height: 2200cm. Width: 900cm: Price KES 30,000", color: "Any of your choice", price: 36000, time:"Production time: 7 Days", images: ["gallery/Single leaf  steel door 1.jpg"] },
+
+                { variantId: 303, size1: "Height: 2600cm. Width: 900cm: Price KES 36,000", size2: "Height: 2400cm. Width: 900cm: Price KES 33,000", size3: "Height: 2200cm. Width: 900cm: Price KES 30,000", color: "Any of your choice",price: 36000, images: ["gallery/Single leaf  steel door 3.jpg"] },
+
+                { variantId: 304, size1: "Height: 2600cm. Width: 900cm: Price KES 36,000", size2: "Height: 2400cm. Width: 900cm: Price KES 33,000", size3: "Height: 2200cm. Width: 900cm: Price KES 30,000", color: "Any of your choice", price: 36000, time:"Production time: 7 Days", images: ["gallery/Single leaf  steel door 4.jpg"] },
+
+                { variantId: 305, size1: "Height: 2600cm. Width: 900cm: Price KES 36,000", size2: "Height: 2400cm. Width: 900cm: Price KES 33,000", size3: "Height: 2200cm. Width: 900cm: Price KES 30,000", color: "Any of your choice", time:"Production time: 7 Days", price: 36000, images: ["gallery/Single leaf  steel door 5.jpg"] },
+
+                { variantId: 306, size1: "Height: 2600cm. Width: 900cm: Price KES 36,000", size2: "Height: 2400cm. Width: 900cm: Price KES 33,000", size3: "Height: 2200cm. Width: 900cm: Price KES 30,000", color: "Any of your choice", price: 36000, images: ["gallery/Single leaf  steel door 14.jpg",] },
+
+                { variantId: 307, size1: "Height: 2600cm. Width: 900cm: Price KES 36,000", size2: "Height: 2400cm. Width: 900cm: Price KES 33,000", size3: "Height: 2200cm. Width: 900cm: Price KES 30,000", color: "Any of your choice", time:"Production time: 7 Days", price: 36000, images: ["gallery/Single leaf  steel door 8.jpg"] },
+
+                { variantId: 308, size1: "Height: 2600cm. Width: 900cm: Price KES 36,000", size2: "Height: 2400cm. Width: 900cm: Price KES 33,000", size3: "Height: 2200cm. Width: 900cm: Price KES 30,000", color: "Any of your choice", time:"Production time: 7 Days", price: 36000, images: ["gallery/Single leaf  steel door 9.jpg"] },
+
+                { variantId: 309, size1: "Height: 2600cm. Width: 900cm: Price KES 36,000", size2: "Height: 2400cm. Width: 900cm: Price KES 33,000", size3: "Height: 2200cm. Width: 900cm: Price KES 30,000", color: "Any of your choice", time:"Production time: 7 Days", price: 36000, images: ["gallery/Single leaf  steel door 10.jpg"] },
+
+                { variantId: 310, size1: "Height: 2600cm. Width: 900cm: Price KES 36,000", size2: "Height: 2400cm. Width: 900cm: Price KES 33,000", size3: "Height: 2200cm. Width: 900cm: Price KES 30,000", color: "Any of your choice", time:"Production time: 7 Days", images: ["gallery/Single leaf  steel door 11.jpg"] },
+
+                { variantId: 311, size1: "Height: 2600cm. Width: 900cm: Price KES 36,000", size2: "Height: 2400cm. Width: 900cm: Price KES 33,000", size3: "Height: 2200cm. Width: 900cm: Price KES 30,000", color: "Any of your choice", time:"Production time: 7 Days", price: 36000, images: ["gallery/Single leaf  steel door 12.jpg"] },
+
+
+                { variantId: 312, size1: "Height: 2600cm. Width: 900cm: Price KES 36,000", size2: "Height: 2400cm. Width: 900cm: Price KES 33,000", size3: "Height: 2200cm. Width: 900cm: Price KES 30,000", color: "Any of your choice", time:"Production time: 7 Days", price: 36000, images: ["gallery/Single leaf  steel door 15.jpg"] },
+
+                { variantId: 313, size1: "Height: 2600cm. Width: 900cm: Price KES 36,000", size2: "Height: 2400cm. Width: 900cm: Price KES 33,000", size3: "Height: 2200cm. Width: 900cm: Price KES 30,000", color: "Any of your choice", time:"Production time: 7 Days", price: 36000, images: ["gallery/Single leaf  steel door 6.jpg"] },
+
+                { variantId: 314, size1: "Height: 2600cm. Width: 900cm: Price KES 36,000", size2: "Height: 2400cm. Width: 900cm: Price KES 33,000", size3: "Height: 2200cm. Width: 900cm: Price KES 30,000", color: "Any of your choice", time:"Production time: 7 Days", price: 36000, images: ["gallery/Single leaf  steel door 18.jpg"] },
+
+                { variantId: 315, size1: "Height: 2600cm. Width: 900cm: Price KES 36,000", size2: "Height: 2400cm. Width: 900cm: Price KES 33,000", size3: "Height: 2200cm. Width: 900cm: Price KES 30,000", color: "Any of your choice", time:"Production time: 7 Days", price: 36000, images: [ "gallery/Single leaf  steel door 17.jpg"] },
+
+                { variantId: 316, size1: "Height: 2600cm. Width: 900cm: Price KES 36,000", size2: "Height: 2400cm. Width: 900cm: Price KES 33,000", size3: "Height: 2200cm. Width: 900cm: Price KES 30,000", color: "Any of your choice", time:"Production time: 7 Days", price: 36000, images: ["gallery/Single leaf  steel door 16.jpg"] }
             ]
         },
         {
             id: 4,
             name: "Single Leaf Steel Door (With Mahogany Cladding on Top)",
-            category: "doors",
+            category: "single_leaf_steel_door_with_mahogany_cladding_on_top",
             variants: [
-                { variantId: 401, size: "Height: 2600cm. Width: 900cm", color: "Mahogany", price: 52000, time:"Production time: 7 Days", images: ["gallery/Single leaf steel door MWCoT 1.jpg", "gallery/Single leaf steel door MWCoT 2.jpg", "gallery/Single leaf steel door MWCoT 3.jpg", "gallery/Single leaf steel door MWCoT 4.jpg"] },
-                { variantId: 402, size: "Height: 2400cm. Width: 900cm", color: "Black", price: 52000.00, time:"Production time: 7 Days", images: ["gallery/Single leaf steel door MWCoT.jpg",  "gallery/Single leaf steel door MWCoT 3.jpg", "gallery/Single leaf steel door MWCoT 5.jpg"] }
+                { variantId: 401, size1: "Height: 2600cm. Width: 900cm: Price KES 52,000", size2: "Height: 2600cm. Width: 900cm: Price KES 52,000", size3: "Height: 2600cm. Width: 900cm: Price KES 52,000", color: "Any of your choice",price: 52000, time:"Production time: 7 Days", images: ["gallery/Single leaf steel door MWCoT 1.jpg"] },
+
+                { variantId: 402, size1: "Height: 2600cm. Width: 900cm: Price KES 52,000", size2: "Height: 2600cm. Width: 900cm: Price KES 52,000", size3: "Height: 2600cm. Width: 900cm: Price KES 52,000", color: "Any of your choice",price: 52000, time:"Production time: 7 Days", images: ["gallery/Single leaf steel door MWCoT 2.jpg"] },
+
+                { variantId: 403, size1: "Height: 2600cm. Width: 900cm: Price KES 52,000", size2: "Height: 2600cm. Width: 900cm: Price KES 52,000", size3: "Height: 2600cm. Width: 900cm: Price KES 52,000", color: "Any of your choice",price: 52000, time:"Production time: 7 Days", images: ["gallery/Single leaf steel door MWCoT 3.jpg"] },
+
+                { variantId: 404, size1: "Height: 2600cm. Width: 900cm: Price KES 52,000", size2: "Height: 2600cm. Width: 900cm: Price KES 52,000", size3: "Height: 2600cm. Width: 900cm: Price KES 52,000", color: "Any of your choice",price: 52000, time:"Production time: 7 Days", images: ["gallery/Single leaf steel door MWCoT 4.jpg"] },
+
+                { variantId: 405, size1: "Height: 2600cm. Width: 900cm: Price KES 52,000", size2: "Height: 2600cm. Width: 900cm: Price KES 52,000", size3: "Height: 2600cm. Width: 900cm: Price KES 52,000", color: "Any of your choice", price: 52000.00, time:"Production time: 7 Days", images: ["gallery/Single leaf steel door MWCoT.jpg"] },
+
+                { variantId: 406, size1: "Height: 2600cm. Width: 900cm: Price KES 52,000", size2: "Height: 2600cm. Width: 900cm: Price KES 52,000", size3: "Height: 2600cm. Width: 900cm: Price KES 52,000", color: "Any of your choice", price: 52000.00, time:"Production time: 7 Days", images: ["gallery/Single leaf steel door MWCoT 3.jpg"] },
+
+                { variantId: 407, size1: "Height: 2600cm. Width: 900cm: Price KES 52,000", size2: "Height: 2600cm. Width: 900cm: Price KES 52,000", size3: "Height: 2600cm. Width: 900cm: Price KES 52,000", color: "Any of your choice", price: 52000.00, time:"Production time: 7 Days", images: ["gallery/Single leaf steel door MWCoT 5.jpg"] }
             ]
         },
         {
             id: 5,
             name: "Double Leaf Steel Door",
-            category: "doors",
+            category: "double_leaf_steel_door",
             variants: [
-                { variantId: 501, size: "Height: 2500cm. Width: 1400cm", color: "Mahogany", price: 40000, time:"Production time: 10 Days", images: ["gallery/Double leaf steel door.jpg", "gallery/Double leaf  steel door 1.jpg", "gallery/Double leaf steel door 2.jpg", "gallery/Double leaf steel door 3.jpg", "gallery/Double leaf steel door 4.jpg", "gallery/Double leaf steel door 5.jpg", "gallery/Double leaf steel door 6.jpg", "gallery/Double leaf steel door 7.jpg"] },
+                 { variantId: 501, size1: "Height: 2200cm. Width: 1200cm: Price KES 40,000", size2: "Height: 2500cm. Width: 1400cm: Price KES 40,000", size3: "Height:  Width:  Price KES ", color: "Any of your choice", price: 40000, time:"Production time: 10 Days", images: ["gallery/Double leaf steel door.jpg"] },
 
-                { variantId: 502, size: "Height: 2200cm. Width: 1200cm", color: "Black", price: 40000.00, time:"Production time: 10 Days", images: ["gallery/Double leaf steel door 8.jpg",  "gallery/Double leaf steel door 9.jpg", "gallery/Double leaf steel door 10.jpg", "gallery/Double leaf steel door 11.jpg", "gallery/Double leaf steel door 12.jpg", "gallery/Double leaf steel door 13.jpg" ,  "gallery/Double leaf steel door 14.jpg"] },
+                 { variantId: 502, size1: "Height: 2200cm. Width: 1200cm: Price KES 40,000", size2: "Height: 2500cm. Width: 1400cm: Price KES 40,000", size3: "Height:  Width:  Price KES ", color: "Any of your choice", price: 40000, time:"Production time: 10 Days", images: ["gallery/Double leaf  steel door 1.jpg"
+                    
+                 ] },
 
-                { variantId: 503, size: "Height: 2200cm. Width: 1000cm", color: "Black", price: 40000.00, time:"Production time: 10 Days", images: ["gallery/Double leaf steel door 15.jpg","gallery/Double leaf steel door 16.jpg", "gallery/Double leaf steel door 17.jpg" ,  "gallery/Double leaf steel door 18.jpg" ,  "gallery/Double leaf steel door 19.jpg" ] }
+                 { variantId: 503, size1: "Height: 2200cm. Width: 1200cm: Price KES 40,000", size2: "Height: 2500cm. Width: 1400cm: Price KES 40,000", size3: "Height:  Width:  Price KES ", color: "Any of your choice", price: 40000, time:"Production time: 10 Days", images: ["gallery/Double leaf steel door 2.jpg"] },
+
+                 { variantId: 504, size1: "Height: 2200cm. Width: 1200cm: Price KES 40,000", size2: "Height: 2500cm. Width: 1400cm: Price KES 40,000", size3: "Height:  Width:  Price KES ", color: "Any of your choice", price: 40000, time:"Production time: 10 Days", images: ["gallery/Double leaf steel door 3.jpg"] },
+
+                 { variantId: 505, size1: "Height: 2200cm. Width: 1200cm: Price KES 40,000", size2: "Height: 2500cm. Width: 1400cm: Price KES 40,000", size3: "Height:  Width:  Price KES ", color: "Any of your choice", price: 40000, time:"Production time: 10 Days", images: ["gallery/Double leaf steel door 4.jpg"] },
+
+                 { variantId: 506, size1: "Height: 2200cm. Width: 1200cm: Price KES 40,000", size2: "Height: 2500cm. Width: 1400cm: Price KES 40,000", size3: "Height:  Width:  Price KES ", color: "Any of your choice", price: 40000, time:"Production time: 10 Days", images: [ "gallery/Double leaf steel door 5.jpg"] },
+
+                 { variantId: 507, size1: "Height: 2200cm. Width: 1200cm: Price KES 40,000", size2: "Height: 2500cm. Width: 1400cm: Price KES 40,000", size3: "Height:  Width:  Price KES ", color: "Any of your choice", price: 40000, time:"Production time: 10 Days", images: ["gallery/Double leaf steel door 6.jpg"] },
+
+                 { variantId: 508, size1: "Height: 2200cm. Width: 1200cm: Price KES 40,000", size2: "Height: 2500cm. Width: 1400cm: Price KES 40,000", size3: "Height:  Width:  Price KES ", color: "Any of your choice", price: 40000, time:"Production time: 10 Days", images: [ "gallery/Double leaf steel door 7.jpg"] },
+
+                 { variantId: 509, size1: "Height: 2200cm. Width: 1200cm: Price KES 40,000", size2: "Height: 2500cm. Width: 1400cm: Price KES 40,000", size3: "Height:  Width:  Price KES ", color: "Any of your choice", price: 40000, time:"Production time: 10 Days", images: ["gallery/Double leaf steel door 8.jpg"] },
+
+                 { variantId: 510, size1: "Height: 2200cm. Width: 1200cm: Price KES 40,000", size2: "Height: 2500cm. Width: 1400cm: Price KES 40,000", size3: "Height:  Width:  Price KES ", color: "Any of your choice", price: 40000, time:"Production time: 10 Days", images: ["gallery/Double leaf steel door 9.jpg"] },
+
+                 { variantId: 511, size1: "Height: 2200cm. Width: 1200cm: Price KES 40,000", size2: "Height: 2500cm. Width: 1400cm: Price KES 40,000", size3: "Height:  Width:  Price KES ", color: "Any of your choice", price: 40000, time:"Production time: 10 Days", images: ["gallery/Double leaf steel door 10.jpg"] },
+
+                 { variantId: 512, size1: "Height: 2200cm. Width: 1200cm: Price KES 40,000", size2: "Height: 2500cm. Width: 1400cm: Price KES 40,000", size3: "Height:  Width:  Price KES ", color: "Any of your choice", price: 40000, time:"Production time: 10 Days", images: ["gallery/Double leaf steel door 11.jpg"] },
+
+                 { variantId: 513, size1: "Height: 2200cm. Width: 1200cm: Price KES 40,000", size2: "Height: 2500cm. Width: 1400cm: Price KES 40,000", size3: "Height:  Width:  Price KES ", color: "Any of your choice", price: 40000, time:"Production time: 10 Days", images: ["gallery/Double leaf steel door 12.jpg"] },
+
+                 { variantId: 514, size1: "Height: 2200cm. Width: 1200cm: Price KES 40,000", size2: "Height: 2500cm. Width: 1400cm: Price KES 40,000", size3: "Height:  Width:  Price KES ", color: "Any of your choice", price: 40000, time:"Production time: 10 Days", images: ["gallery/Double leaf steel door 13.jpg"] },
+
+                 { variantId: 515, size1: "Height: 2200cm. Width: 1200cm: Price KES 40,000", size2: "Height: 2500cm. Width: 1400cm: Price KES 40,000", size3: "Height:  Width:  Price KES ", color: "Any of your choice", price: 40000, time:"Production time: 10 Days", images: ["gallery/Double leaf steel door 14.jpg"] },
+
+                 { variantId: 516, size1: "Height: 2200cm. Width: 1200cm: Price KES 40,000", size2: "Height: 2500cm. Width: 1400cm: Price KES 40,000", size3: "Height:  Width:  Price KES ", color: "Any of your choice", price: 40000, time:"Production time: 10 Days",  images: ["gallery/Double leaf steel door 15.jpg" ] },
+
+                 { variantId: 517, size1: "Height: 2200cm. Width: 1200cm: Price KES 40,000", size2: "Height: 2500cm. Width: 1400cm: Price KES 40,000", size3: "Height:  Width:  Price KES ", color: "Any of your choice", price: 40000, time:"Production time: 10 Days",  images: ["gallery/Double leaf steel door 16.jpg" ] },
+
+                 { variantId: 518, size1: "Height: 2200cm. Width: 1200cm: Price KES 40,000", size2: "Height: 2500cm. Width: 1400cm: Price KES 40,000", size3: "Height:  Width:  Price KES ", color: "Any of your choice", price: 40000, time:"Production time: 10 Days",  images: ["gallery/Double leaf steel door 17.jpg"] },
+
+                 { variantId: 519, size1: "Height: 2200cm. Width: 1200cm: Price KES 40,000", size2: "Height: 2500cm. Width: 1400cm: Price KES 40,000", size3: "Height:  Width:  Price KES ", color: "Any of your choice", price: 40000, time:"Production time: 10 Days",  images: ["gallery/Double leaf steel door 18.jpg"] },
+
+                 { variantId: 520, size1: "Height: 2200cm. Width: 1200cm: Price KES 40,000", size2: "Height: 2500cm. Width: 1400cm: Price KES 40,000", size3: "Height:  Width:  Price KES ", color: "Any of your choice", price: 40000, time:"Production time: 10 Days",  images: ["gallery/Double leaf steel door 19.jpg" ] }
             ]
         },
         {
             id: 6,
             name: "Sliding Gates",
-            category: "gates",
+            category: "sliding_gates",
             variants: [
-                { variantId: 601, size: "Height: 8ft. Width: 13ft", color: "Mahogany", price: 85000, time:"Production time:  Days", images: ["gallery/Sliding gates.jpg", "gallery/Sliding gates 1.jpg", "gallery/Sliding gates 2.jpg", "gallery/Sliding gates 3.jpg", "gallery/Sliding gates 4.jpg"] },
+                { variantId: 601, size1: "Height: 8ft. Width: 13ft: Price KES 85,000", size2: "Height: 9ft. Width: 5ft: Price KES 95,000", size3: "Height:  Width:  Price KES ", color: "Any of your choice", price: 95000, time:"Production time:  Days", images: ["gallery/Sliding gates.jpg", "gallery/Sliding gates 1.jpg", "gallery/Sliding gates 2.jpg", "gallery/Sliding gates 3.jpg", "gallery/Sliding gates 4.jpg"] },
 
-                { variantId: 602, size: "Height: 9ft. Width: 5ft", color: "Black", price: 95000.00, time:"Production time:  Days", images: ["gallery/Sliding gates 5.jpg",  "gallery/Sliding gates 6.jpg", "gallery/Sliding gates 7.jpg", "gallery/Sliding gates 8.jpg","gallery/Sliding gates 9.jpg"] }
+                { variantId: 602, size1: "Height: 8ft. Width: 13ft: Price KES 85,000", size2: "Height: 9ft. Width: 5ft: Price KES 95,000", size3: "Height:  Width:  Price KES ", color: "Any of your choice", price: 95000, time:"Production time:  Days", images: ["gallery/Sliding gates 1.jpg"] },
+
+                { variantId: 603, size1: "Height: 8ft. Width: 13ft: Price KES 85,000", size2: "Height: 9ft. Width: 5ft: Price KES 95,000", size3: "Height:  Width:  Price KES ", color: "Any of your choice", price: 95000, time:"Production time:  Days", images: ["gallery/Sliding gates 2.jpg"] },
+
+                { variantId: 604, size1: "Height: 8ft. Width: 13ft: Price KES 85,000", size2: "Height: 9ft. Width: 5ft: Price KES 95,000", size3: "Height:  Width:  Price KES ", color: "Any of your choice", price: 95000, time:"Production time:  Days", images: [ "gallery/Sliding gates 3.jpg"] },
+
+                { variantId: 605, size1: "Height: 8ft. Width: 13ft: Price KES 85,000", size2: "Height: 9ft. Width: 5ft: Price KES 95,000", size3: "Height:  Width:  Price KES ", color: "Any of your choice", price: 95000, time:"Production time:  Days", images: ["gallery/Sliding gates 4.jpg"] },
+
+                { variantId: 606, size1: "Height: 8ft. Width: 13ft: Price KES 85,000", size2: "Height: 9ft. Width: 5ft: Price KES 95,000", size3: "Height:  Width:  Price KES ", color: "Any of your choice", price: 95000, time:"Production time:  Days", images: ["gallery/Sliding gates 5.jpg"] },
+
+                { variantId: 607, size1: "Height: 8ft. Width: 13ft: Price KES 85,000", size2: "Height: 9ft. Width: 5ft: Price KES 95,000", size3: "Height:  Width:  Price KES ", color: "Any of your choice", price: 95000, time:"Production time:  Days", images: ["gallery/Sliding gates 6.jpg"] },
+
+                { variantId: 608, size1: "Height: 8ft. Width: 13ft: Price KES 85,000", size2: "Height: 9ft. Width: 5ft: Price KES 95,000", size3: "Height:  Width:  Price KES ", color: "Any of your choice", price: 95000, time:"Production time:  Days", images: ["gallery/Sliding gates 7.jpg"] },
+
+                { variantId: 609, size1: "Height: 8ft. Width: 13ft: Price KES 85,000", size2: "Height: 9ft. Width: 5ft: Price KES 95,000", size3: "Height:  Width:  Price KES ", color: "Any of your choice", price: 95000, time:"Production time:  Days", images: ["gallery/Sliding gates 8.jpg"] },
+
+                { variantId: 610, size1: "Height: 8ft. Width: 13ft: Price KES 85,000", size2: "Height: 9ft. Width: 5ft: Price KES 95,000", size3: "Height:  Width:  Price KES ", color: "Any of your choice", price: 95000, time:"Production time:  Days", images: ["gallery/Sliding gates 9.jpg"] }
             ]
         },
         {
             id: 7,
             name: "Normal Opening Gates",
-            category: "gates",
+            category: "normal_gates",
             variants: [
-                { variantId: 701, size: "Height: 9ft. Width: 13ft", color: "Mahogany", price: 75000, time:"Production time:  Days", images: ["gallery/Normal Opening Gates.jpg", "gallery/Normal Opening Gates 1.jpg", "gallery/Normal Opening Gates 2.jpg", "gallery/Normal Opening Gates 3.jpg", "gallery/Normal Opening Gates 5.jpg",  "gallery/Normal Opening Gates 6.jpg", "gallery/Normal Opening Gates 7.jpg", "gallery/Normal Opening Gates 8.jpg", "gallery/Normal Opening Gates 10.jpg", "gallery/Normal Opening Gates 11.jpg", "gallery/Normal Opening Gates 4.jpg"] }
+            { variantId: 701, size1: "Height: 9ft. Width: 13ft: Price KES 75,000", size2: "Height: 9ft. Width: 5ft: Price KES 70,000", size3: "Height:  Width:  Price KES ", color: "Any of your choice", price: 75000, time:"Production time: 14 Days", images: ["gallery/Normal Opening Gates.jpg"] },
+
+            { variantId: 702, size1: "Height: 9ft. Width: 13ft: Price KES 75,000", size2: "Height: 9ft. Width: 5ft: Price KES 70,000", size3: "Height:  Width:  Price KES ", color: "Any of your choice", price: 75000, time:"Production time: 14 Days", images: ["gallery/Normal Opening Gates 1.jpg"] },
+
+            { variantId: 703, size1: "Height: 9ft. Width: 13ft: Price KES 75,000", size2: "Height: 9ft. Width: 5ft: Price KES 70,000", size3: "Height:  Width:  Price KES ", color: "Any of your choice", price: 75000, time:"Production time: 14 Days", images: ["gallery/Normal Opening Gates 2.jpg"] },
+
+            { variantId: 704, size1: "Height: 9ft. Width: 13ft: Price KES 75,000", size2: "Height: 9ft. Width: 5ft: Price KES 70,000", size3: "Height:  Width:  Price KES ", color: "Any of your choice", price: 75000, time:"Production time: 14 Days", images: ["gallery/Normal Opening Gates 3.jpg"] },
+
+            { variantId: 705, size1: "Height: 9ft. Width: 13ft: Price KES 75,000", size2: "Height: 9ft. Width: 5ft: Price KES 70,000", size3: "Height:  Width:  Price KES ", color: "Any of your choice", price: 75000, time:"Production time: 14 Days", images: ["gallery/Normal Opening Gates 5.jpg"] },
+
+            { variantId: 706, size1: "Height: 9ft. Width: 13ft: Price KES 75,000", size2: "Height: 9ft. Width: 5ft: Price KES 70,000", size3: "Height:  Width:  Price KES ", color: "Any of your choice", price: 75000, time:"Production time: 14 Days", images: ["gallery/Normal Opening Gates 6.jpg"] },
+
+            { variantId: 707, size1: "Height: 9ft. Width: 13ft: Price KES 75,000", size2: "Height: 9ft. Width: 5ft: Price KES 70,000", size3: "Height:  Width:  Price KES ", color: "Any of your choice", price: 75000, time:"Production time: 14 Days", images: ["gallery/Normal Opening Gates 7.jpg"] },
+
+            { variantId: 708, size1: "Height: 9ft. Width: 13ft: Price KES 75,000", size2: "Height: 9ft. Width: 5ft: Price KES 70,000", size3: "Height:  Width:  Price KES ", color: "Any of your choice", price: 75000, time:"Production time: 14 Days", images: ["gallery/Normal Opening Gates 8.jpg"] },
+
+            { variantId: 709, size1: "Height: 9ft. Width: 13ft: Price KES 75,000", size2: "Height: 9ft. Width: 5ft: Price KES 70,000", size3: "Height:  Width:  Price KES ", color: "Any of your choice", price: 75000, time:"Production time: 14 Days", images: ["gallery/Normal Opening Gates 10.jpg"] },
+
+            { variantId: 710, size1: "Height: 9ft. Width: 13ft: Price KES 75,000", size2: "Height: 9ft. Width: 5ft: Price KES 70,000", size3: "Height:  Width:  Price KES ", color: "Any of your choice", price: 75000, time:"Production time: 14 Days", images: ["gallery/Normal Opening Gates 11.jpg"] },
+
+            { variantId: 711, size1: "Height: 9ft. Width: 13ft: Price KES 75,000", size2: "Height: 9ft. Width: 5ft: Price KES 70,000", size3: "Height:  Width:  Price KES ", color: "Any of your choice", price: 75000, time:"Production time: 14 Days", images: ["gallery/Normal Opening Gates 4.jpg"] },            
             ]
         },
         {
@@ -164,13 +332,25 @@
             name: "Windows",
             category: "windows",
             variants: [
-                { variantId: 801, size: "Height: 4ft. Width: 4ft", color: "Mahogany", price: 9000, time:"Production time:  3 Days", images: ["gallery/Windows.jpg", "gallery/Windows 1.jpg", "gallery/Windows 2.jpg"] },
+                { variantId: 801, size1: "Height: 4ft. Width: 4ft: Price KES 9,000", size2: "Height: 5ft. Width: 5ft: Price KES 11,000", size3: "Height: 6ft. Width: 6ft: Price KES 14,500 Height 6ft Width 7ft: Price KES 15,500", color: "", price: 9000, time:"Production time: 3 Days", images: ["gallery/Windows.jpg"] },
 
-                { variantId: 802, size: "Height: 5ft. Width: 5ft", color: "Black", price: 11000.00, time:"Production time:  3 Days", images: ["gallery/Windows 4.jpg",  "gallery/Windows 5.jpg"] },
+                { variantId: 802, size1: "Height: 4ft. Width: 4ft: Price KES 9,000", size2: "Height: 5ft. Width: 5ft: Price KES 11,000", size3: "Height: 6ft. Width: 6ft: Price KES 14,500 Height 6ft Width 7ft: Price KES 15,500", color: "", price: 9000, time:"Production time: 3 Days", images: ["gallery/Windows 1.jpg"] },
 
-                { variantId: 803, size: "Height: 6ft. Width: 6ft", color: "Black", price: 14500.00, time:"Production time:  3 Days", images: ["gallery/Windows 6.jpg", "gallery/Windows 3.jpg", "gallery/Windows 7.jpg"] },
+                { variantId: 803, size1: "Height: 4ft. Width: 4ft: Price KES 9,000", size2: "Height: 5ft. Width: 5ft: Price KES 11,000", size3: "Height: 6ft. Width: 6ft: Price KES 14,500 Height 6ft Width 7ft: Price KES 15,500", color: "Mahogany", price: 9000, time:"Production time: 3 Days", images: ["gallery/Windows 2.jpg"] },
 
-                { variantId: 804, size: "Height: 6ft. Width: 7ft", color: "Black", price: 15500.00, time:"Production time:  3 Days", images: ["gallery/Windows 8.jpg", "gallery/Windows 9.jpg"] }
+                { variantId: 804, size1: "Height: 4ft. Width: 4ft: Price KES 9,000", size2: "Height: 5ft. Width: 5ft: Price KES 11,000", size3: "Height: 6ft. Width: 6ft: Price KES 14,500 Height 6ft Width 7ft: Price KES 15,500", color: "", price: 9000, time:"Production time: 3 Days", images: ["gallery/Windows 4.jpg"] },
+
+                { variantId: 805, size1: "Height: 4ft. Width: 4ft: Price KES 9,000", size2: "Height: 5ft. Width: 5ft: Price KES 11,000", size3: "Height: 6ft. Width: 6ft: Price KES 14,500 Height 6ft Width 7ft: Price KES 15,500", color: "Mahogany", price: 9000, time:"Production time: 3 Days", images: ["gallery/Windows 5.jpg"] },
+
+                { variantId: 806, size1: "Height: 4ft. Width: 4ft: Price KES 9,000", size2: "Height: 5ft. Width: 5ft: Price KES 11,000", size3: "Height: 6ft. Width: 6ft: Price KES 14,500 Height 6ft Width 7ft: Price KES 15,500", color: "", price: 9000, time:"Production time: 3 Days", images: ["gallery/Windows 3.jpg"] },
+
+                { variantId: 807, size1: "Height: 4ft. Width: 4ft: Price KES 9,000", size2: "Height: 5ft. Width: 5ft: Price KES 11,000", size3: "Height: 6ft. Width: 6ft: Price KES 14,500 Height 6ft Width 7ft: Price KES 15,500", color: "", price: 9000, time:"Production time: 3 Days", images: ["gallery/Windows 7.jpg"] },
+
+                { variantId: 808, size1: "Height: 4ft. Width: 4ft: Price KES 9,000", size2: "Height: 5ft. Width: 5ft: Price KES 11,000", size3: "Height: 6ft. Width: 6ft: Price KES 14,500 Height 6ft Width 7ft: Price KES 15,500", color: "", price: 9000, time:"Production time: 3 Days", images: ["gallery/Windows 8.jpg"] },
+
+                { variantId: 809, size1: "Height: 4ft. Width: 4ft: Price KES 9,000", size2: "Height: 5ft. Width: 5ft: Price KES 11,000", size3: "Height: 6ft. Width: 6ft: Price KES 14,500 Height 6ft Width 7ft: Price KES 15,500", color: "", price: 9000, time:"Production time: 3 Days", images: ["gallery/Windows 9.jpg"] },
+
+                { variantId: 809, size1: "Height: 4ft. Width: 4ft: Price KES 9,000", size2: "Height: 5ft. Width: 5ft: Price KES 11,000", size3: "Height: 6ft. Width: 6ft: Price KES 14,500 Height 6ft Width 7ft: Price KES 15,500", color: "", price: 9000, time:"Production time: 3 Days", images: ["gallery/Windows 6.jpg"] },
             ]
         },
         {
@@ -178,9 +358,39 @@
             name: "Normal Balcony & Stairs Grills",
             category: "grills",
             variants: [
-                { variantId: 901, size: "Square Meter", color: "Mahogany", price: 4000, time:"Production time:  3 Days", images: ["gallery/Balcony.jpg", "gallery/Balcony3.jpg", "gallery/Balcony4.jpg", "gallery/Balcony5.jpg"] },
+                { variantId: 901, size1: "Square Meter", color: "", price: 4000, time:"Production time:  3 Days", images: ["gallery/Balcony.jpg"] },
 
-                { variantId: 902, size: "Square Meter", color: "Black", price:4000.00, time:"Production time:  3 Days", images: ["gallery/Staircase.jpg", "gallery/Balcony2.jpg", "gallery/Staircase1.jpg",  "gallery/Staircase2.jpg",  "gallery/Staircase3.jpg",  "gallery/Staircase4.jpg",  "gallery/Staircase5.jpg", "gallery/Staircase6.jpg",  "gallery/Staircase7.jpg",  "gallery/Staircase8.jpg",  "gallery/Staircase9.jpg",  "gallery/Staircase10.jpg",  "gallery/Staircase11.jpg"] }
+                { variantId: 902, size1: "Square Meter", color: "", price: 4000, time:"Production time:  3 Days", images: ["gallery/Balcony3.jpg"] },
+
+                { variantId: 903, size: "Square Meter", color: "", price: 4000, time:"Production time:  3 Days", images: ["gallery/Balcony4.jpg"] },
+
+                { variantId: 904, size1: "Square Meter", color: "", price: 4000, time:"Production time:  3 Days", images: [ "gallery/Balcony5.jpg"] },
+
+                { variantId: 905, size1: "Square Meter", color: "Mahogany", price: 4000, time:"Production time:  3 Days", images: ["gallery/Staircase.jpg"] },
+
+                { variantId: 906, size1: "Square Meter", color: "", price: 4000, time:"Production time:  3 Days", images: ["gallery/Balcony2.jpg"] },
+
+                { variantId: 907, size1: "Square Meter", color: "Mahogany", price: 4000, time:"Production time:  3 Days", images: ["gallery/Staircase1.jpg"] },
+
+                { variantId: 908, size1: "Square Meter", color: "", price: 4000, time:"Production time:  3 Days", images: ["gallery/Staircase2.jpg"] },
+
+                { variantId: 909, size1: "Square Meter", color: "", price: 4000, time:"Production time:  3 Days", images: ["gallery/Staircase3.jpg"] },
+                
+                { variantId: 911, size1: "Square Meter", color: "Mahogany", price: 4000, time:"Production time:  3 Days", images: ["gallery/Staircase4.jpg"] },
+
+                { variantId: 912, size1: "Square Meter", color: "", price: 4000, time:"Production time:  3 Days", images: ["gallery/Staircase5.jpg"] },
+                
+                { variantId: 914, size1: "Square Meter", color: "", price: 4000, time:"Production time:  3 Days", images: ["gallery/Staircase6.jpg"] },
+
+                { variantId: 915, size1: "Square Meter", color: "", price: 4000, time:"Production time:  3 Days", images: ["gallery/Staircase7.jpg"] },
+
+                { variantId: 916, size1: "Square Meter", color: "", price: 4000, time:"Production time:  3 Days", images: ["gallery/Staircase8.jpg"] },
+
+                { variantId: 917, size1: "Square Meter", color: "", price: 4000, time:"Production time:  3 Days", images: ["gallery/Staircase9.jpg"] },
+
+                { variantId: 918, size1: "Square Meter", color: "", price: 4000, time:"Production time:  3 Days", images: ["gallery/Staircase10.jpg"] },
+
+                { variantId: 919, size1: "Square Meter", color: "", price:4000.00, time:"Production time:  3 Days", images: [ "gallery/Staircase11.jpg"] }
             ]
         },
         {
@@ -188,8 +398,14 @@
             name: "CNC & Laser Cut Balcony & Stairs Grills",
             category: "grills",
             variants: [
-                { variantId: 1001, size: "Square Meter", color: "", price: 6000, time:"Production time:  3 Days", images: ["gallery/Laser1.jpg", "gallery/Laser2.jpg", "gallery/Laser5.jpg"] },
-                { variantId: 1002, size: "Square Meter", color: "", price: 6000, time:"Production time:  3 Days", images: ["gallery/Laser3.jpg", "gallery/Laser4.jpg"] }
+                { variantId: 1001, size1: "Square Meter", color: "", price: 6000, time:"Production time:  3 Days", images: ["gallery/Laser1.jpg"] },
+
+                { variantId: 1002, size1: "Square Meter", color: "", price: 6000, time:"Production time:  3 Days", images: ["gallery/Laser2.jpg"] },
+
+                { variantId: 1003, size1: "Square Meter", color: "", price: 6000, time:"Production time:  3 Days", images: ["gallery/Laser5.jpg"] },
+                
+                { variantId: 1004, size1: "Square Meter", color: "", price: 6000, time:"Production time:  3 Days", images: ["gallery/Laser3.jpg"] },
+                { variantId: 1005, size1: "Square Meter", color: "", price: 6000, time:"Production time:  3 Days", images: [ "gallery/Laser4.jpg"] }
             ]
         },
         // Add more products as needed
@@ -214,21 +430,26 @@
         // Apply pagination
         const startIndex = (currentPage - 1) * productsPerPage;
         const paginatedProducts = filteredProducts.slice(startIndex, startIndex + productsPerPage);
+        
+        const displayedProducts = products.slice(0, 10);
 
         paginatedProducts.forEach(product => {
             product.variants.forEach(variant => {
                 const productDiv = document.createElement('div');
                 productDiv.classList.add('product');
                 productDiv.innerHTML = `
-                    <h3>${product.name} </h3>
-                    <p>${variant.size} </p>
-                    <p>Colors: (${variant.color})</p>
-                    <p> ${variant.time}</p>
-                    <p>Price: KES ${variant.price.toFixed(2)}</p>
-                    <button onclick="addToCart(${product.id}, ${variant.variantId})">Add to Cart</button>
                     <div class="images">
                         ${variant.images.map(img => `<img src="${img}" alt="${product.name}" >`).join('')}
-                    </div>                    
+                    </div> 
+                    <h3>${product.name} </h3>
+                    <p>${variant.size1} </p>
+                    <p>${variant.size2} </p>
+                    <p>${variant.size3} </p>
+                    <p>Colors: (${variant.color})</p>
+                    <p> ${variant.time}</p>
+                    <p>OFFER: @ KES ${variant.price.toFixed(2)}</p>
+                    <button onclick="addToCart(${product.id}, ${variant.variantId})">Add to Cart</button>
+                                       
                 `;
                 productGrid.appendChild(productDiv);
             });
@@ -301,13 +522,16 @@
 
     // Add product to cart
     function addToCart(productId, variantId) {
+        // Find product and variant details
         const product = products.find(p => p.id === productId);
         const variant = product.variants.find(v => v.variantId === variantId);
         
+        // Check if product is already in the cart
         const cartItem = cart.find(item => item.variantId === variantId);
         if (cartItem) {
             cartItem.quantity += 1;
         } else {
+            // Add new variant into the cart
             cart.push({ ...variant, name: product.name, quantity: 1 });
         }
 
@@ -364,7 +588,7 @@
             <p> We are loacated at Utawala,<a href="" class="social-links"></a></p>
         </div>
         <div class="social-links">
-            <h2>Contact us through:</h2>
+            <h2 id="contacts">Contact us through: </h2>
             <a href="mailto:info@high-tech-steel-works-ltd.co.ke" aria-label="Email us at High-Tech Steel Works">Email</a> |
             <a href="https://wa.me/+254724376109" aria-label="Chat with us on WhatsApp">WhatsApp</a> |
             <a href="tel:+254723536999" aria-label="Call High-Tech Steel Works">Call: +254 723 536 999</a>

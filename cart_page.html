@@ -17,7 +17,7 @@
                 <li><a href="./index.html">Home</a></li>
                 <li><a href="./products.html">Products</a></li>
                 <li><a href="./equipment.html">Equipment</a>                 
-                <li><a href="./cart_page.html">Cart</a></li>
+                <li><a href="./cart_page.html"><i class="bx bxl-cart" height="1rem" width="1rem" ></i></a></li>
                 <li><a href="#contacts">Contact Us</a></li>
                 <li><a href="./profile.html">Profile</a></li>
                 <div class="closeMenu">&times;</div>
@@ -48,110 +48,58 @@
     </section>
     <script src="scripts.js"></script>
     <script>
-        // // Display cart contents
-        // function displayCart() {
-        //     const cartItemsDiv = document.getElementById('cart-items');
-        //     if (!cartItemsDiv) return; // Only run if on the cart page
-            
-        //     cartItemsDiv.innerHTML = '';
-        //     let totalPrice = 0;
+        // Display cart contents
+        // Display cart items with variant details
+        function displayCart() {
+            const cartItemsDiv = document.getElementById('cart-items');
+            cartItemsDiv.innerHTML = ''; // Clear previous content
+            let totalPrice = 0;
 
-        //     cart.forEach(item => {
-        //         const itemDiv = document.createElement('div');
-        //         itemDiv.classList.add('cart-item');
-        //         itemDiv.innerHTML = `
-        //             <h3>${item.name} - ${item.size} (${item.color})</h3>
-        //             <p>Price: $${item.price.toFixed(2)}</p>
-        //             <p>Quantity: <input type="number" value="${item.quantity}" onchange="updateQuantity(${item.variantId}, this.value)"></p>
-        //             <button onclick="removeFromCart(${item.variantId})">Remove</button>
-        //             <div class="images">
-        //                 ${item.images.map(img => `<img src="${img}" width="50">`).join('')}
-        //             </div>
-        //         `;
-        //         cartItemsDiv.appendChild(itemDiv);
-        //         totalPrice += item.price * item.quantity;
-        //     });
+            cart.forEach(item => {
+                const productDiv = document.createElement('div');
+                productDiv.classList.add('cart-item');
+                productDiv.innerHTML = `
+                    <h3>${item.name} - ${item.size} (${item.color})</h3>
+                    <p>Price: $${item.price.toFixed(2)}</p>
+                    <p>Quantity: <input type="number" value="${item.quantity}" onchange="updateQuantity(${item.variantId}, this.value)"></p>
+                    <button onclick="removeFromCart(${item.variantId})">Remove</button>
+                    <div class="images">
+                        ${item.images.map(img => `<img src="${img}" alt="${item.name}" style="width: 50px;">`).join('')}
+                    </div>
+                `;
+                cartItemsDiv.appendChild(productDiv);
 
-        //     document.getElementById('total-price').innerText = `$${totalPrice.toFixed(2)}`;
-        // }
+                totalPrice += item.price * item.quantity;
+            });
 
-        // // Update quantity of items in cart
-        // function updateQuantity(variantId, quantity) {
-        //     const cartItem = cart.find(item => item.variantId === variantId);
-        //     if (cartItem) {
-        //         cartItem.quantity = Number(quantity);
-        //         localStorage.setItem('cart', JSON.stringify(cart));
-        //         displayCart();
-        //     }
-        // }
+            document.getElementById('total-price').innerText = `$${totalPrice.toFixed(2)}`;
+        }
 
-        // // Remove item from cart
-        // function removeFromCart(variantId) {
-        //     cart = cart.filter(item => item.variantId !== variantId);
-        //     localStorage.setItem('cart', JSON.stringify(cart));
-        //     displayCart();
-        // }
+        // Update quantity in cart
+        function updateQuantity(variantId, newQuantity) {
+            const productIndex = cart.findIndex(item => item.variantId === variantId);
+            if (productIndex !== -1) {
+                cart[productIndex].quantity = Number(newQuantity);
+                localStorage.setItem('cart', JSON.stringify(cart));
+                displayCart();
+            }
+        }
 
-        // // Clear cart function
-        // function clearCart() {
-        //     cart = [];
-        //     localStorage.setItem('cart', JSON.stringify(cart));
-        //     displayCart();
-        // }
+        // Remove item from cart
+        function removeFromCart(variantId) {
+            cart = cart.filter(item => item.variantId !== variantId);
+            localStorage.setItem('cart', JSON.stringify(cart));
+            displayCart();
+        }
 
-        // // Add product to cart
-        // function addToCart(productId, variantId) {
-        //     const product = products.find(p => p.id === productId);
-        //     const variant = product.variants.find(v => v.variantId === variantId);
-            
-        //     const cartItem = cart.find(item => item.variantId === variantId);
-        //     if (cartItem) {
-        //         cartItem.quantity += 1;
-        //     } else {
-        //         cart.push({ ...variant, name: product.name, quantity: 1 });
-        //     }
+        // Proceed to checkout
+        function checkout() {
+            localStorage.setItem('cart', JSON.stringify(cart)); // Save cart for checkout
+            window.location.href = "checkout_page.html"; // Redirect to checkout page
+        }
 
-        //     localStorage.setItem('cart', JSON.stringify(cart));
-        //     alert("Product added to cart!");
-        //     displayCart();
-        // }
-
-        // // Display cart contents
-        // function displayCart() {
-        //     const cartItemsDiv = document.getElementById('cart-items');
-        //     if (!cartItemsDiv) return; // Only run if on the cart page
-            
-        //     cartItemsDiv.innerHTML = '';
-        //     let totalPrice = 0;
-
-        //     cart.forEach(item => {
-        //         const itemDiv = document.createElement('div');
-        //         itemDiv.classList.add('cart-item');
-        //         itemDiv.innerHTML = `
-        //             <h3>${item.name} - ${item.size} (${item.color})</h3>
-        //             <p>Price: $${item.price.toFixed(2)}</p>
-        //             <p>Quantity: <input type="number" value="${item.quantity}" onchange="updateQuantity(${item.variantId}, this.value)"></p>
-        //             <button onclick="removeFromCart(${item.variantId})">Remove</button>
-        //             <div class="images">
-        //                 ${item.images.map(img => `<img src="${img}" width="50">`).join('')}
-        //             </div>
-        //         `;
-        //         cartItemsDiv.appendChild(itemDiv);
-        //         totalPrice += item.price * item.quantity;
-        //     });
-
-        //     document.getElementById('total-price').innerText = `$${totalPrice.toFixed(2)}`;
-        // }
-
-        // // Update quantity of items in cart
-        // function updateQuantity(variantId, quantity) {
-        //     const cartItem = cart.find(item => item.variantId === variantId);
-        //     if (cartItem) {
-        //         cartItem.quantity = Number(quantity);
-        //         localStorage.setItem('cart', JSON.stringify(cart));
-        //         displayCart();
-        //     }
-        // }
+        // Load and display cart on page load
+        document.addEventListener("DOMContentLoaded", displayCart);
     </script>
     
 </body>
