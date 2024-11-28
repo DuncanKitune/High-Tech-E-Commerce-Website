@@ -139,8 +139,14 @@ body {
         padding: 0.1rem;
         margin: .2em;
       }
-      .icons i {
-        margin: 1rem;
+      [type="socials"] {
+        margin: .2rem;
+      }
+      .bxl-facebook, .bxl-telegram, .fa-tiktok, .fa-twitter {
+        margin: .2rem;
+      }
+      :hover{
+        color:var(--conservative)
       }
     .hidden {
       display: flex;
