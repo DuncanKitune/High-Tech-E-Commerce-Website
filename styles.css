@@ -60,6 +60,7 @@ body {
     height: 3rem;
     transition: transform 0.3s ease-in-out;
     padding-left: 40%;
+    z-index: 2000;
     /* margin: auto; */
   }
   
@@ -522,6 +523,44 @@ h2, h3 :hover{
     border: .1rem solid var(--primary);
     text-decoration: dotted;
 }
+/* Check out form */
+/* Form Styles */
+form {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 2rem;
+    border-radius: 10px;
+    max-width: 600px;
+    margin: 2rem auto;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+form input, form textarea, form button {
+    width: 100%;
+    padding: 1rem;
+    margin: 0.5rem 0;
+    border: none;
+    border-radius: 5px;
+    outline: none;
+    font-size: 1rem;
+}
+
+@media (max-width:768px) {
+    form{
+        width: 98%;
+    }
+    
+}
+form input, form textarea {
+    /* background: rgba(255, 255, 255, 0.2); */
+    color: var(--conservative);
+}
+
+form button {
+    color: var(--conservative);
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.3s ease;
+}
 
 
 /* Equipment */
@@ -664,7 +703,7 @@ h2, h3 :hover{
 
 button[type="submit"] {
     background-color: var(--primary);
-    color: var(--text);
+    color: var(--color);
     padding: 10px;
     border: none;
     border-radius: 5px;
@@ -672,7 +711,9 @@ button[type="submit"] {
 }
 
 button[type="submit"]:hover {
-    background-color: var(--s);
+    background-color: var(--color);
+    color: var(--primary);
+    border: .1rem solid var(--primary);
 }
 
 /* Footer General Styling */
