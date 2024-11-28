@@ -37,8 +37,8 @@ body {
     justify-content: space-between;
     flex-wrap: wrap;
     overflow: hidden;
-    margin: 0.2rem;
-    padding: 0.2rem;
+    margin: 0.1 0 rem;
+    padding: 0.5rem;
   }
   
   h1 {
@@ -46,7 +46,8 @@ body {
     font-size: 3.5rem;
     font-weight: bold;
     text-align: center;
-    margin: 0;
+    margin: auto;
+    padding-left: 5%;
   }
   
   h1 span {
@@ -58,29 +59,13 @@ body {
   .logo {
     height: 3rem;
     transition: transform 0.3s ease-in-out;
+    padding-left: 40%;
+    /* margin: auto; */
   }
   
   .logo:hover {
     z-index: 2;
-    transform: scale(1.5) rotate(15deg);
-  }
-  
-  .home-button {
-    border-top: 0.1rem solid var(--white);
-    background-color: var(--primary);
-    color: var(--white);
-    display: flex;
-    justify-content: space-between;
-    font-size: 1rem;
-    white-space: nowrap;
-    box-shadow: 0.2rem 0.1rem 0.1rem -0.5rem var(--color);
-  }
-  
-  .home-button:hover {
-    box-shadow: 0.1rem 0.25rem 0.25rem 0.1rem var(--color);
-    cursor: pointer;
-    text-decoration: underline solid var(--secondary);
-    border-radius: 10%;
+    transform: scale(1.5) rotate(1deg);
   }
   
   nav ul {
@@ -88,17 +73,19 @@ body {
     display: flex;
     gap: 20px;
     align-items: center;
-    margin: 2rem 0;
+    margin: 0;
     padding: 0;
     background-color: var(--primary);
     box-shadow: 0.2rem 0.1rem 0.1rem -0.5rem var(--text);
+    height: 1.5rem;
   }
   
   nav a {
     color: var(--conservative);
     text-decoration: none;
-    margin: 0 10px;
-    padding: 0.2rem;
+    margin: 3rem;
+    padding: .2rem;
+    font-size: 1.1rem;
   }
   
   nav a:hover {
@@ -134,14 +121,23 @@ body {
     display: none;
     cursor: pointer;
   }
-  .icons hr{
-    display: hidden;
-  }
+ 
   .hidden {
     display: none;
+    font-size: 1.1rem;
+    padding: .4rem;
+    column-gap: .1rem;
+  }
+
+  .shopping-cart {
+    color: var(--color);
   }
   
   @media screen and (max-width: 768px) {
+    nav a {
+        padding: 0.1rem;
+        margin: .5em;
+      }
     .hidden {
       display: flex;
       align-items: center;
@@ -168,6 +164,7 @@ body {
     .mainMenu {
       display: none;
     }
+    
   }
   
   @media screen and (min-width: 769px) {
@@ -180,13 +177,14 @@ body {
       gap: 1rem;
       align-items: center;
     }
+    
   }
   
-  .bxl-facebook:hover,
-  .fa-tiktok:hover,
-  .fa-x:hover,
-  .fa-telegram:hover {
-    color: var(--color);
+  .bxl-facebook:hover, .bxl-telegram:hover {
+    color: rgb(21, 21, 226);
+  }
+  .fa-tiktok:hover, .fa-twitter:hover:hover{
+    color:var(--conservative)
   }
   
 
@@ -323,22 +321,6 @@ iframe {
     height: 450px;
 }
 
-/* Video Container inside the modal */
-/* #iframe-container {
-    position: relative;
-    width: 80%;
-    max-width: 800px;
-    background: #fff;
-    border-radius: 8px;
-    overflow: hidden;
-} */
-
-/* Style the iframe to be responsive */
-/* iframe {
-    width: 100%;
-    height: 450px;
-} */
-
 .container h2{
     font-size: 2.5rem;
     color: var(--conservative);
@@ -396,8 +378,8 @@ h2, h3 :hover{
 /* products */
 /* Section Styling */
  #product-listing {
-    max-width: 1500px;
-    width: 90%;
+    max-width: 2500px;
+    width:97%;
     padding: 10px;
     margin: auto;
     background-color: var(--color);
@@ -405,7 +387,11 @@ h2, h3 :hover{
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     margin: 20px;
 }
-
+@media screen and (max-width: 768px) {
+    #product-listing {
+        width: 90%;
+      }
+    }
 /* /* Title */
  #product-listing h2 {
     text-align: center;

@@ -14,12 +14,22 @@
         <img src="./gallery/Logo.jpg" alt="High-Tech Steel Works Logo" class="logo">
         <h1>High-Tech Steel Works Ltd</h1>
         <nav>
+            <div class="hidden">
+                <ul>
+                <li><a href="./index.html">Home</a></li>
+                <li><a href="./products.html">Products</a></li>
+                <li><a href="#contacts">Contacts</a></li>
+                <li><a href="./cart_page.html"><i class="fas fa-shopping-cart" height="1rem" width="1rem" ></i></a></li>
+                <li><a href="./profile.html"><i class="fas fa-user" height="2rem" width="2rem" ></i></a></li>
+                <!-- <div class="closeMenu">&times;</div> -->
+                </ul>
+            </div> 
             <div class="openMenu"><i class="bars">&#9776;</i></div>
               <ul class="mainMenu">
                 <li><a href="./index.html">Home</a></li>
                 <li><a href="./products.html">Products</a></li>
                 <li><a href="./equipment.html">Equipment</a> </li>
-                <li><a href="#contacts">Our Contacts</a></li>
+                <li><a href="#contacts">Contacts</a></li>
                 <li><a href="" class=""><i class="fas fa-search" id="search-btn"></i></a>
                 <li><a href="./cart_page.html"><i class="fas fa-shopping-cart" height="1rem" width="1rem" ></i></a></li>
                 <li><a href="./profile.html"><i class="fas fa-user" height="2rem" width="2rem" ></i></a></li>
@@ -37,23 +47,14 @@
                     <a href="https://www.facebook.com" target="_blank" title="socials"><i class="bx bxl-telegram" height="1rem" width="1rem" ></i></a>
                 </span>       
             </ul> 
-            <div class="hidden">
-                <ul>
-                <li><a href="./index.html">Home</a></li>
-                <li><a href="./products.html">Products</a></li>
-                <li><a href="#contacts">Contacts</a></li>
-                <li><a href="./cart_page.html"><i class="fas fa-shopping-cart" height="1rem" width="1rem" ></i></a></li>
-                <li><a href="./profile.html"><i class="fas fa-user" height="2rem" width="2rem" ></i></a></li>
-                <!-- <div class="closeMenu">&times;</div> -->
-                </ul>
-            </div> 
+            
         </nav>
     </header>
     <hr>
     <main>
         <!-- Product Listing Section -->
         <section id="product-listing">
-            <h2>Products</h2>
+            <h2 class="shopping-cart">Products </h2>
 
             <!-- Filters and Search -->
             <div id="filters">
@@ -202,7 +203,9 @@
 
                 { variantId: 315, size1: "Height: 2600cm. Width: 900cm: Price KES 36,000", size2: "Height: 2400cm. Width: 900cm: Price KES 33,000", size3: "Height: 2200cm. Width: 900cm: Price KES 30,000", color: "Any of your choice", time:"Production time: 7 Days", price: 36000, images: [ "gallery/Single leaf  steel door 17.jpg"] },
 
-                { variantId: 316, size1: "Height: 2600cm. Width: 900cm: Price KES 36,000", size2: "Height: 2400cm. Width: 900cm: Price KES 33,000", size3: "Height: 2200cm. Width: 900cm: Price KES 30,000", color: "Any of your choice", time:"Production time: 7 Days", price: 36000, images: ["gallery/Single leaf  steel door 16.jpg"] }
+                { variantId: 316, size1: "Height: 2600cm. Width: 900cm: Price KES 36,000", size2: "Height: 2400cm. Width: 900cm: Price KES 33,000", size3: "Height: 2200cm. Width: 900cm: Price KES 30,000", color: "Any of your choice", time:"Production time: 7 Days", price: 36000, images: ["gallery/Single leaf  steel door 16.jpg"] },
+
+                { variantId: 317, size1: "Height: 2600cm. Width: 900cm: Price KES 36,000", size2: "Height: 2400cm. Width: 900cm: Price KES 33,000", size3: "Height: 2200cm. Width: 900cm: Price KES 30,000", color: "Any of your choice", time:"Production time: 7 Days", price: 36000, images: ["gallery/Single leaf  steel door 19.jpg"] }
             ]
         },
         {
@@ -324,7 +327,9 @@
 
             { variantId: 710, size1: "Height: 9ft. Width: 13ft: Price KES 75,000", size2: "Height: 9ft. Width: 5ft: Price KES 70,000", size3: "Height:  Width:  Price KES ", color: "Any of your choice", price: 75000, time:"Production time: 14 Days", images: ["gallery/Normal Opening Gates 11.jpg"] },
 
-            { variantId: 711, size1: "Height: 9ft. Width: 13ft: Price KES 75,000", size2: "Height: 9ft. Width: 5ft: Price KES 70,000", size3: "Height:  Width:  Price KES ", color: "Any of your choice", price: 75000, time:"Production time: 14 Days", images: ["gallery/Normal Opening Gates 4.jpg"] },            
+            { variantId: 711, size1: "Height: 9ft. Width: 13ft: Price KES 75,000", size2: "Height: 9ft. Width: 5ft: Price KES 70,000", size3: "Height:  Width:  Price KES ", color: "Any of your choice", price: 75000, time:"Production time: 14 Days", images: ["gallery/Normal Opening Gates 4.jpg"] },  
+            
+            { variantId: 711, size1: "Height: 9ft. Width: 13ft: Price KES 75,000", size2: "Height: 9ft. Width: 5ft: Price KES 70,000", size3: "Height:  Width:  Price KES ", color: "Any of your choice", price: 75000, time:"Production time: 14 Days", images: ["gallery/Sliding gates 10.jpg"] },  
             ]
         },
         {
@@ -447,7 +452,7 @@
                     <p>${variant.size3} </p>
                     <p>Colors: (${variant.color})</p>
                     <p> ${variant.time}</p>
-                    <p>OFFER: @ KES ${variant.price.toFixed(2)}</p>
+                    <p>Premier: KES ${variant.price.toFixed(2)}</p>
                     <button onclick="addToCart(${product.id}, ${variant.variantId})">Add to Cart</button>
                                        
                 `;
@@ -585,19 +590,24 @@
     <div class="footer_">
         <div class="social-links">
             <h2>Location</h2>
-            <p> We are loacated at Utawala,<a href="" class="social-links"></a></p>
+            <p> We are located at Utawala, Nairobi, Kenya. Along Eastern Bypass Road. Between Benedicta and Ruai Bypass. Around 500 meters off the Eastern Bypass main road on your way to Komarock Modern Hospital.<a href="https://maps.google.com/?q=-1.2746821,36.9740237" class="social-links"><i class="fa fa-map-marker"></i></a></p>
         </div>
         <div class="social-links">
-            <h2 id="contacts">Contact us through: </h2>
-            <a href="mailto:info@high-tech-steel-works-ltd.co.ke" aria-label="Email us at High-Tech Steel Works">Email</a> |
-            <a href="https://wa.me/+254724376109" aria-label="Chat with us on WhatsApp">WhatsApp</a> |
+            <h2 id="contacts">Contact us through:</h2>
+            <a href="mailto:info@high-tech-steel-works-ltd.co.ke" aria-label="Email us at High-Tech Steel Works">Email </a> |
+            <a href="https://wa.me/+254724376109" aria-label="Chat with us on WhatsApp">WhatsApp </a> |
             <a href="tel:+254723536999" aria-label="Call High-Tech Steel Works">Call: +254 723 536 999</a>
         </div>
+        
         <div class="social-links">
-            <h2></h2>
-            <img src="./gallery/Facebook.png" alt="facebook"><a href="#"> |</a> 
-            <img src="./gallery/X.png" alt="facebook"><a href="#"> |</a> 
-            <img src="./gallery/Tiktok.jpg" alt="facebook"><a href="#"> |</a> 
+            <!-- <h2>Chek our Social Media:   </h2> -->
+            <a href="https://www.facebook.com" target="_blank" title="socials"><i class="bx bxl-facebook" height="1rem" width="1rem" ></i></a>
+
+            <a href="https://www.facebook.com" target="_blank" title="socials"><i class="fab fa-tiktok" height="1rem" width="1rem"></i></a>
+
+            <a href="https://www.facebook.com" target="_blank" title="socials"><i class="fab fa-twitter" height="1rem" width="1rem"></i></a>
+
+            <a href="https://www.facebook.com" target="_blank" title="socials"><i class="bx bxl-telegram" height="1rem" width="1rem" ></i></a> 
         </div>
     </div>
 </footer>
