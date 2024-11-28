@@ -137,7 +137,10 @@ body {
   @media screen and (max-width: 768px) {
     nav a {
         padding: 0.1rem;
-        margin: .5em;
+        margin: .2em;
+      }
+      .icons i {
+        margin: 1rem;
       }
     .hidden {
       display: flex;
