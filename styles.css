@@ -231,11 +231,27 @@ body {
 .menu-item:hover .selection-dropdown {
     display: block;
 }
+
+.team-page {
+    /* display: relative; */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    overflow: hidden;
+    max-width: 99%;
+    margin: 2rem auto;
+    padding: 20px;
+    background-color: var(--color);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
 .team {
     border-radius: 5%;
-    max-width: 28rem;
+    max-width: 15rem;
     width: 98%;
-    max-height:20rem;
+    /* max-height:20rem; */
     height: 98%;
     margin:auto;
     padding: .2rem;
@@ -246,6 +262,19 @@ body {
     transform: scale(1.2); /* Adjust zoom level */
     margin-left: calc(50vw - (max-content + 20px)); /* Center based on viewport width */
     justify-items: center;
+ }
+
+ @media screen and (max-width: 768px) {
+    .team {
+        border-radius: 5%;
+        max-width: 28rem;
+        width: 98%;
+        max-height:20rem;
+        height: 98%;
+        margin:auto;
+        padding: .2rem;
+     }
+    
  }
  /* Style the video container */
  #video-container {
