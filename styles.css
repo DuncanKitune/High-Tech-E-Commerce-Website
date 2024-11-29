@@ -231,7 +231,22 @@ body {
 .menu-item:hover .selection-dropdown {
     display: block;
 }
+.team {
+    border-radius: 5%;
+    max-width: 28rem;
+    width: 98%;
+    max-height:20rem;
+    height: 98%;
+    margin:auto;
+    padding: .2rem;
+ }
 
+ .team:hover{
+    z-index: 2;
+    transform: scale(1.2); /* Adjust zoom level */
+    margin-left: calc(50vw - (max-content + 20px)); /* Center based on viewport width */
+    justify-items: center;
+ }
  /* Style the video container */
  #video-container {
     display: flex;
@@ -587,7 +602,11 @@ form button {
     overflow: hidden;
     overflow-y: scroll;
  }
-
+.equipment p{
+    margin: 1rem;
+    font-size: large;
+    color: var(--conservative);
+}
 .film-item {
     border-radius: 10%;
     position: relative;
@@ -610,7 +629,13 @@ form button {
  }
  .film-item img{
     border-radius: 5%;
+    max-width: 28rem;
+    width: 98%;
+    height:20rem;
+    margin:auto;
+    padding: .2rem;
  }
+
 
 /* profile */
 /* General styles */
@@ -781,7 +806,7 @@ footer h2 {
     border-top: 1px solid var(--color);
     width: 80%;
     margin: 20px auto;
-    color: var(--primary);
+    
 }
 
 
