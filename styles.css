@@ -197,7 +197,29 @@ body {
     color:var(--conservative)
   }
   
-
+/* Back to the Top button */
+#backToTopBtn {
+    display: none; /* Hidden by default */
+    position: fixed; /* Fixed/sticky position */
+    bottom: 3rem; /* Place the button at the bottom of the page */
+    right: 2rem; /* Place the button 30px from the right */
+    z-index: 99; /* Make sure it does not overlap */
+    border: .1rem solid var(--gold); /* Remove borders */
+    outline: none; /* Remove outline */
+    background-color: var(--primary); /* Set a background color */
+    color: var(--color); /* Set a text color */
+    cursor: pointer; /* Add a mouse pointer on hover */
+    padding: .1rem; /* Some padding */
+    border-radius: 50%; /* Rounded corners */
+    font-size: 2rem; /* Increase font size */
+ }
+ 
+ #backToTopBtn:hover {
+    background-color: var(--background); /* Add a dark-grey background on hover */
+    color: var(--color);
+    box-shadow: 1rem solid var(--conservative) ;
+ 
+ }
   
   /* Dropdown styling */
 .section-dropdown {
@@ -239,7 +261,7 @@ body {
     justify-content: space-between;
     flex-wrap: wrap;
     overflow: hidden;
-    max-width: 99%;
+    max-width: 98%;
     margin: 2rem auto;
     padding: 20px;
     background-color: var(--color);
@@ -419,6 +441,9 @@ h2, h3 :hover{
     padding: auto;
     margin: auto;
 }
+
+/* products */
+
 /* Filters and Sorting */
 #filters label, #filters select {
     margin: 0 10px;
@@ -428,8 +453,21 @@ h2, h3 :hover{
     justify-content: center;
     margin: 20px 0;
 }
+forms{
+    box-shadow: 0 0 2px var(--colour); 
+    /* background: rgba(255, 255, 255, 0.1); */
+    background-color: var(--color);
+    border-radius: 10px;
+    max-width: 600px;
+    /* margin: 1rem auto; */
+}
 
-/* products */
+@media screen and(max-width:768px) {
+    forms{
+       /* background-color: #af8947; */
+    }
+    
+}
 /* Section Styling */
  #product-listing {
     max-width: 2500px;

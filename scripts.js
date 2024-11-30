@@ -13,6 +13,26 @@ function show(){
 function close(){
     mainMenu.style.top = '-110%';
 }
+
+// Get the button
+let backToTopBtn = document.getElementById("backToTopBtn");
+
+// When the user scrolls down 2 times from the top of the document, show the button
+let scrollCount = 0;
+window.onscroll = function() {
+    scrollCount++;
+    if (scrollCount >= 6) {
+        backToTopBtn.style.display = "block";
+    } else {
+        backToTopBtn.style.display = "none";
+    }
+};
+
+// When the user clicks on the button, scroll to the top of the document
+backToTopBtn.addEventListener('click', function() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+
     // Function to display products dynamically
     function displayProducts() {
         const productContainer = document.getElementById('products');
@@ -394,24 +414,6 @@ async function payWithMpesa() {
         alert('Error: ' + result.error);
     }
 }
-// Get back to the top the button
-let backToTopBtn = document.getElementById("backToTopBtn");
-
-// When the user scrolls down 2 times from the top of the document, show the button
-let scrollCount = 0;
-window.onscroll = function() {
-    scrollCount++;
-    if (scrollCount >= 6) {
-        backToTopBtn.style.display = "block";
-    } else {
-        backToTopBtn.style.display = "none";
-    }
-};
-
-// When the user clicks on the button, scroll to the top of the document
-backToTopBtn.addEventListener('click', function() {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-});
 
 // Track sales
 app.post('/buy-product', async (req, res) => {
